@@ -99,7 +99,11 @@
     self.rightImageView.image = [UIImage imageNamed:@"img.png"];
 }
 
+
+// 删除按钮动画响应
 - (void) deleteButtonClick {
-    NSLog(@"deletebuttonClick");
+    if (self.delegate && [self.delegate respondsToSelector:@selector(tableViewCell:clickDeleteButton:)]) {
+        [self.delegate tableViewCell:self clickDeleteButton:self.deleteButton];
+    }
 }
 @end

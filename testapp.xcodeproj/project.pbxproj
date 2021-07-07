@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA042C3A2695505D00C4160E /* DeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA042C392695505D00C4160E /* DeleteCellView.m */; };
 		DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80F8F2268AFF3F004773B8 /* AppDelegate.m */; };
 		DA80F8F6268AFF3F004773B8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80F8F5268AFF3F004773B8 /* SceneDelegate.m */; };
 		DA80F8F9268AFF3F004773B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80F8F8268AFF3F004773B8 /* ViewController.m */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA042C382695505D00C4160E /* DeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteCellView.h; sourceTree = "<group>"; };
+		DA042C392695505D00C4160E /* DeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteCellView.m; sourceTree = "<group>"; };
 		DA80F8EE268AFF3F004773B8 /* testapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA80F8F1268AFF3F004773B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA80F8F2268AFF3F004773B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				DA8797602692A7280062DD3D /* NormalTableViewCell.m */,
 				DA87976526931AE30062DD3D /* DetailViewController.h */,
 				DA87976626931AE30062DD3D /* DetailViewController.m */,
+				DA042C382695505D00C4160E /* DeleteCellView.h */,
+				DA042C392695505D00C4160E /* DeleteCellView.m */,
 			);
 			path = testapp;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA80F8F9268AFF3F004773B8 /* ViewController.m in Sources */,
+				DA042C3A2695505D00C4160E /* DeleteCellView.m in Sources */,
 				DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */,
 				DA80F904268AFF40004773B8 /* main.m in Sources */,
 				DA87976726931AE30062DD3D /* DetailViewController.m in Sources */,

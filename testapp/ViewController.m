@@ -8,9 +8,11 @@
 #import "ViewController.h"
 #import "NormalTableViewCell.h"
 #import "DetailViewController.h"
+#import "DeleteCellView.h"
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
-
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource, NormalTableViewCellDelegate>
+@property(nonatomic, strong, readwrite) UITableView *tableview;
+@property(nonatomic, strong, readwrite) NSMutableArray *dataArray;
 @end
 
 @implementation ViewController
@@ -18,7 +20,10 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-
+        _dataArray = @[].mutableCopy;
+        for (int i = 0; i < 20; ++i) {
+            [_dataArray addObject:@(i)];
+        }
     }
     return self;
 }
@@ -28,11 +33,11 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    tableView.dataSource = self;
-    tableView.delegate = self;
+    _tableview = [[UITableView alloc] initWithFrame:self.view.bounds];
+    _tableview.dataSource = self;
+    _tableview.delegate = self;
     
-    [self.view addSubview:tableView];
+    [self.view addSubview:_tableview];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -49,7 +54,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return _dataArray.count;
 }
 
 //系统提供复⽤用回收池，根据 reuseIdentifier 作为标识
@@ -58,39 +63,31 @@
     
     if (!cell) {
         cell = [[NormalTableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"id"];
+        cell.delegate = self;
     }
 
-
-
-//系统默认样式
-//    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:@"id"];
-//    cell.textLabel.text = [NSString stringWithFormat:@"title - %@", @(indexPath.row)];
-//    cell.detailTextLabel.text = @"subtitle";
-    
-//自定义样式
     [cell layoutTableViewCell];
     
     return cell;
 }
 
 
-//    TestView *view2 = [[TestView alloc] init];
-//    view2.backgroundColor = [UIColor greenColor];
-//    view2.frame = CGRectMake(150, 150, 100, 100);
-//    [self.view addSubview:view2];
-//
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushController)];
-//    [view2 addGestureRecognizer:tapGesture];
-   
-//一个简单的uinavicontroller逻辑
-//- (void) pushController {
-//    UIViewController *viewController = [[UIViewController alloc] init];
-//    viewController.view.backgroundColor = [UIColor whiteColor];
-//    viewController.navigationItem.title = @"content";
-//
-//    viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右侧标题" style:UIBarButtonItemStylePlain target:self action:nil];
-//
-//    [self.navigationController pushViewController:viewController animated:YES];
-//}
+- (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton {
+    DeleteCellView *deleteView = [[DeleteCellView alloc] initWithFrame:self.view.bounds];
+    
+    CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
+    
+    //block处理循环引用问题
+    __weak typeof(self) wself = self;
+    //删除点击的cell动画
+    [deleteView showDeleteViewFromPoint:rect.origin clickBlock:^{
+        __strong typeof(self) strongSelf = wself;
+        //数量删除
+        [strongSelf.dataArray removeLastObject];
+        [strongSelf.tableview deleteRowsAtIndexPaths:@[[strongSelf.tableview indexPathForCell:tableViewCell]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
+}
+
+
 
 @end
