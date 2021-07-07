@@ -7,36 +7,8 @@
 
 #import "ViewController.h"
 #import "NormalTableViewCell.h"
-//测试uiview
-//@interface TestView : UIView
-//
-//@end
-//
-//@implementation TestView
-//
-//- (instancetype) init {
-//    self = [super init];
-//    if (self) {
-//
-//    }
-//    return self;
-//}
-//
-//- (void)willMoveToSuperview:(nullable UIView *)newSuperview {
-//    [super willMoveToSuperview:newSuperview];
-//}
-//- (void)didMoveToSuperview {
-//    [super didMoveToSuperview];
-//}
-//- (void)willMoveToWindow:(nullable UIWindow *)newWindow {
-//    [super willMoveToWindow:newWindow];
-//}
-//- (void)didMoveToWindow {
-//    [super didMoveToWindow];
-//}
-//
-//@end
-//
+#import "DetailViewController.h"
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -50,19 +22,6 @@
     }
     return self;
 }
-//
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//}
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//}
-//- (void)viewWillDisappear:(BOOL)animated {
-//    [super viewWillDisappear:animated];
-//}
-//- (void)viewDidDisappear:(BOOL)animated {
-//    [super viewDidDisappear:animated];
-//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,9 +38,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 100;
 }
-
+//使用WKWebView实现简单的页面加载
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *controller = [[UIViewController alloc] init];
+    DetailViewController *controller = [[DetailViewController alloc] init];
     controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
     [self.navigationController pushViewController:controller animated:YES];
 }

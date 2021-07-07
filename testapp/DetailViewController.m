@@ -6,8 +6,10 @@
 //
 
 #import "DetailViewController.h"
+#import <WebKit/WebKit.h>
+@interface DetailViewController ()<WKNavigationDelegate>
 
-@interface DetailViewController ()
+@property(nonatomic, strong, readwrite) WKWebView *webView;
 
 @end
 
@@ -16,16 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.view addSubview:({
+        self.webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 88, self.view.frame.size.width, self.view.frame.size.height - 88)];
+        self.webView.navigationDelegate = self;
+        self.webView;
+    })];
+    
+    [self.webView loadRequest:[NSURLRequest requestWithURL: [NSURL URLWithString: @"https://time.geekbang.org/course/detail/100025901-95615?utm_term=zeusPGH8Q%5Cx26amp%3Butm_source%3Dwechat%5Cx26amp%3Butm_medium%3Dqianduanzhidian%5Cx26amp%3Butm_campaign%3D169-presell%5Cx26amp%3Butm_content%3Darticle"]]];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
