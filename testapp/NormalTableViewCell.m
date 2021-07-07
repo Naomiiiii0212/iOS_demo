@@ -75,7 +75,14 @@
             [self.deleteButton setTitle:@"v" forState:UIControlStateHighlighted];
             //点击交互逻辑
             [self.deleteButton addTarget:self action:@selector(deleteButtonClick) forControlEvents:UIControlEventTouchUpInside];
-            self.deleteButton.backgroundColor = [UIColor grayColor];
+            //self.deleteButton.backgroundColor = [UIColor grayColor];
+            
+            //动画圆角calayer
+            self.deleteButton.layer.cornerRadius = 10;
+            self.deleteButton.layer.masksToBounds = YES;
+            self.deleteButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+            self.deleteButton.layer.borderWidth = 2;
+            
             self.deleteButton;
         })];
     }
