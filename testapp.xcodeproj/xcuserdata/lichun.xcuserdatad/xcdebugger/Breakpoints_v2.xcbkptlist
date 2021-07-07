@@ -3,4 +3,54 @@
    uuid = "0647D7A6-84D8-44E3-87DC-553FF6F117BA"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2427AF7-5032-4D37-9A31-3530E59FC4E5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testapp/DetailViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "DetailViewController()"
+            landmarkType = "2">
+            <Locations>
+               <Location
+                  uuid = "E2427AF7-5032-4D37-9A31-3530E59FC4E5 - 5193ea3d8b7c3690"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DetailViewController webView]"
+                  moduleName = "testapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lichun/Desktop/testapp/testapp/DetailViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "E2427AF7-5032-4D37-9A31-3530E59FC4E5 - f4aaf368391937de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DetailViewController setWebView:]"
+                  moduleName = "testapp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lichun/Desktop/testapp/testapp/DetailViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "49">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
