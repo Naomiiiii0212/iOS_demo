@@ -9,10 +9,13 @@
 #import "NormalTableViewCell.h"
 #import "DetailViewController.h"
 #import "DeleteCellView.h"
+#import "ListLoader.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource, NormalTableViewCellDelegate>
 @property(nonatomic, strong, readwrite) UITableView *tableview;
 @property(nonatomic, strong, readwrite) NSMutableArray *dataArray;
+@property(nonatomic, strong, readwrite) ListLoader *listLoader;
+
 @end
 
 @implementation ViewController
@@ -30,7 +33,7 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
 	self.view.backgroundColor = [UIColor whiteColor];
 
 	_tableview = [[UITableView alloc] initWithFrame:self.view.bounds];
@@ -38,6 +41,9 @@
 	_tableview.delegate = self;
 
 	[self.view addSubview:_tableview];
+    
+    self.listLoader = [[ListLoader alloc] init];
+    [self.listLoader loadListData];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
