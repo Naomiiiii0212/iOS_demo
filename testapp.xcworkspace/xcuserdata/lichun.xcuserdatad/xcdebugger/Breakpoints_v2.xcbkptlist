@@ -23,15 +23,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "60481C9A-159B-4039-BEA0-B20337FB3FFE"
+            uuid = "86C3A9A6-EDC6-4057-9D47-E6D3179F935B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testapp/NewsController/Model/ListLoader.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-_getSandBoxPath"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B736FAF0-8D3E-4751-B533-3DC96D709178"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testapp/NewsController/Model/ListLoader.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-_getSandBoxPath"
             landmarkType = "7">
          </BreakpointContent>

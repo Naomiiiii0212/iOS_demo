@@ -54,13 +54,46 @@
 					  }];
 
 	[dataTask resume];
-    [self _getSandBoxPath];
+	[self _getSandBoxPath];
 }
 
 - (void) _getSandBoxPath {
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    
-    NSLog(@"");
+	NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+	NSString *cachePath = [pathArray firstObject];
+
+	NSFileManager *fileManger = [NSFileManager defaultManager];
+	//创建文件夹
+	NSString *dataPath = [cachePath stringByAppendingPathComponent:@"Data"];
+
+	NSError *createError;
+	//创建文件
+	[fileManger createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:nil error:&createError];
+
+	NSString *listDataPath = [dataPath stringByAppendingPathComponent:@"list"];
+	//数据写入文件
+	NSData* listData = [@"abc" dataUsingEncoding:NSUTF8StringEncoding];
+	[fileManger createFileAtPath:listDataPath contents:listData attributes:nil];
+
+	//查询文件
+	BOOL fileExist = [fileManger fileExistsAtPath:listDataPath];
+
+//    //删除
+//    if (fileExist) {
+//        [fileManger removeItemAtPath:listDataPath error:nil];
+//    }
+
+	NSLog(@"");
+
+	//末尾追加
+	NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:listDataPath];
+	[fileHandler seekToEndOfFile];
+	[fileHandler writeData:[@"def" dataUsingEncoding:NSUTF8StringEncoding]];
+
+	//刷新文件 提高实时性
+	[fileHandler synchronizeFile];
+
+	[fileHandler closeFile];
+
 }
 
 @end
