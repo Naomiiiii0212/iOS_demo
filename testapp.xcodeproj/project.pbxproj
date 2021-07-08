@@ -21,6 +21,7 @@
 		DA8797612692A7280062DD3D /* NormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8797602692A7280062DD3D /* NormalTableViewCell.m */; };
 		DA8797642692F4A70062DD3D /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8797632692F4A70062DD3D /* img.png */; };
 		DA87976726931AE30062DD3D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87976626931AE30062DD3D /* DetailViewController.m */; };
+		DAD517A72696ADDB007DD3C5 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD517A62696ADDB007DD3C5 /* ListItem.m */; };
 		DAFD55F52695BDCC00FDF4B0 /* ListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD55F42695BDCC00FDF4B0 /* ListLoader.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		DA8797632692F4A70062DD3D /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		DA87976526931AE30062DD3D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		DA87976626931AE30062DD3D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		DAD517A52696ADDB007DD3C5 /* ListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
+		DAD517A62696ADDB007DD3C5 /* ListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
 		DAFD55F32695BDCC00FDF4B0 /* ListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListLoader.h; sourceTree = "<group>"; };
 		DAFD55F42695BDCC00FDF4B0 /* ListLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListLoader.m; sourceTree = "<group>"; };
 		E0DAA48F0B15A97E1ED59FFD /* libPods-testapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-testapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +76,6 @@
 				8D50AF12F2B7996F345CA0A5 /* Pods-testapp.debug.xcconfig */,
 				30AEE5933867DE6037F91019 /* Pods-testapp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -106,14 +108,13 @@
 		DA80F8F0268AFF3F004773B8 /* testapp */ = {
 			isa = PBXGroup;
 			children = (
-				DAFD55F62695BDE400FDF4B0 /* loader */,
+				DAD517A42696AD67007DD3C5 /* detail */,
+				DAD5179F2696AC2E007DD3C5 /* NewsController */,
 				DA8797632692F4A70062DD3D /* img.png */,
 				DA80F8F1268AFF3F004773B8 /* AppDelegate.h */,
 				DA80F8F2268AFF3F004773B8 /* AppDelegate.m */,
 				DA80F8F4268AFF3F004773B8 /* SceneDelegate.h */,
 				DA80F8F5268AFF3F004773B8 /* SceneDelegate.m */,
-				DA80F8F7268AFF3F004773B8 /* ViewController.h */,
-				DA80F8F8268AFF3F004773B8 /* ViewController.m */,
 				DA80F8FA268AFF3F004773B8 /* Main.storyboard */,
 				DA80F8FD268AFF40004773B8 /* Assets.xcassets */,
 				DA80F8FF268AFF40004773B8 /* LaunchScreen.storyboard */,
@@ -123,23 +124,58 @@
 				DA87975A268C75F30062DD3D /* videoViewController.m */,
 				DA87975C268DBDA50062DD3D /* RecommendViewController.h */,
 				DA87975D268DBDA50062DD3D /* RecommendViewController.m */,
-				DA87975F2692A7280062DD3D /* NormalTableViewCell.h */,
-				DA8797602692A7280062DD3D /* NormalTableViewCell.m */,
-				DA87976526931AE30062DD3D /* DetailViewController.h */,
-				DA87976626931AE30062DD3D /* DetailViewController.m */,
-				DA042C382695505D00C4160E /* DeleteCellView.h */,
-				DA042C392695505D00C4160E /* DeleteCellView.m */,
 			);
 			path = testapp;
 			sourceTree = "<group>";
 		};
-		DAFD55F62695BDE400FDF4B0 /* loader */ = {
+		DAD5179F2696AC2E007DD3C5 /* NewsController */ = {
+			isa = PBXGroup;
+			children = (
+				DAD517A32696AD32007DD3C5 /* Controller */,
+				DAD517A12696AD00007DD3C5 /* View */,
+				DAD517A02696AC90007DD3C5 /* Model */,
+			);
+			path = NewsController;
+			sourceTree = "<group>";
+		};
+		DAD517A02696AC90007DD3C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				DAFD55F32695BDCC00FDF4B0 /* ListLoader.h */,
 				DAFD55F42695BDCC00FDF4B0 /* ListLoader.m */,
+				DAD517A52696ADDB007DD3C5 /* ListItem.h */,
+				DAD517A62696ADDB007DD3C5 /* ListItem.m */,
 			);
-			path = loader;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DAD517A12696AD00007DD3C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA87975F2692A7280062DD3D /* NormalTableViewCell.h */,
+				DA8797602692A7280062DD3D /* NormalTableViewCell.m */,
+				DA042C382695505D00C4160E /* DeleteCellView.h */,
+				DA042C392695505D00C4160E /* DeleteCellView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DAD517A32696AD32007DD3C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA80F8F7268AFF3F004773B8 /* ViewController.h */,
+				DA80F8F8268AFF3F004773B8 /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DAD517A42696AD67007DD3C5 /* detail */ = {
+			isa = PBXGroup;
+			children = (
+				DA87976526931AE30062DD3D /* DetailViewController.h */,
+				DA87976626931AE30062DD3D /* DetailViewController.m */,
+			);
+			path = detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +276,7 @@
 			files = (
 				DAFD55F52695BDCC00FDF4B0 /* ListLoader.m in Sources */,
 				DA80F8F9268AFF3F004773B8 /* ViewController.m in Sources */,
+				DAD517A72696ADDB007DD3C5 /* ListItem.m in Sources */,
 				DA042C3A2695505D00C4160E /* DeleteCellView.m in Sources */,
 				DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */,
 				DA80F904268AFF40004773B8 /* main.m in Sources */,

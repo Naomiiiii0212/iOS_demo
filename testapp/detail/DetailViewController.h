@@ -10,6 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailViewController : ViewController
+//文章底层页
+- (instancetype) initWithUrlString:(NSString*) urlString;
 
 @end
 

@@ -14,6 +14,7 @@
 // 进度条
 @property(nonatomic, strong, readwrite) UIProgressView *progressView;
 
+@property(nonatomic, strong, readwrite) NSString *articleUrl;
 @end
 
 @implementation DetailViewController
@@ -21,6 +22,14 @@
 //移除监听
 - (void) dealloc {
 	[self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+}
+
+- (instancetype) initWithUrlString:(NSString*) urlString {
+	self = [super init];
+	if (self) {
+		self.articleUrl = urlString;
+	}
+	return self;
 }
 
 - (void)viewDidLoad {
@@ -38,7 +47,7 @@
 		self.progressView;
 	})];
 
-	[self.webView loadRequest:[NSURLRequest requestWithURL: [NSURL URLWithString: @"https://time.geekbang.org/course/detail/100025901-95615?utm_term=zeusPGH8Q%5Cx26amp%3Butm_source%3Dwechat%5Cx26amp%3Butm_medium%3Dqianduanzhidian%5Cx26amp%3Butm_campaign%3D169-presell%5Cx26amp%3Butm_content%3Darticle"]]];
+	[self.webView loadRequest:[NSURLRequest requestWithURL: [NSURL URLWithString: self.articleUrl]]];
 	[self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
