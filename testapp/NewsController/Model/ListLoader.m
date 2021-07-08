@@ -46,6 +46,7 @@
 							  [listItem configWithDictionary:info];
 							  [listItemArray addObject:listItem];
 						  }
+	                                          [self _archiveListDataWithArray:listItemArray.copy];
 	                                          dispatch_async(dispatch_get_main_queue(), ^{
 									 if (finishBlock) {
 										 finishBlock(error == nil, listItemArray.copy);
@@ -54,10 +55,9 @@
 					  }];
 
 	[dataTask resume];
-	[self _getSandBoxPath];
 }
 
-- (void) _getSandBoxPath {
+- (void) _archiveListDataWithArray:(NSArray<ListItem *> *) array {
 	NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *cachePath = [pathArray firstObject];
 
@@ -66,16 +66,23 @@
 	NSString *dataPath = [cachePath stringByAppendingPathComponent:@"Data"];
 
 	NSError *createError;
-	//创建文件
-	[fileManger createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:nil error:&createError];
 
+	[fileManger createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:nil error:&createError];
+	//创建文件
 	NSString *listDataPath = [dataPath stringByAppendingPathComponent:@"list"];
 	//数据写入文件
-	NSData* listData = [@"abc" dataUsingEncoding:NSUTF8StringEncoding];
+	NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:array requiringSecureCoding:YES error:nil];
 	[fileManger createFileAtPath:listDataPath contents:listData attributes:nil];
 
+	//读取二进制流文件
+	NSData *readListData = [fileManger contentsAtPath:listDataPath];
+
+	//反序列化
+
+    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [ListItem class],nil] fromData:readListData error:nil];
+
 	//查询文件
-	BOOL fileExist = [fileManger fileExistsAtPath:listDataPath];
+	//BOOL fileExist = [fileManger fileExistsAtPath:listDataPath];
 
 //    //删除
 //    if (fileExist) {
@@ -84,15 +91,15 @@
 
 	NSLog(@"");
 
-	//末尾追加
-	NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:listDataPath];
-	[fileHandler seekToEndOfFile];
-	[fileHandler writeData:[@"def" dataUsingEncoding:NSUTF8StringEncoding]];
-
-	//刷新文件 提高实时性
-	[fileHandler synchronizeFile];
-
-	[fileHandler closeFile];
+//	//末尾追加
+//	NSFileHandle *fileHandler = [NSFileHandle fileHandleForUpdatingAtPath:listDataPath];
+//	[fileHandler seekToEndOfFile];
+//	[fileHandler writeData:[@"def" dataUsingEncoding:NSUTF8StringEncoding]];
+//
+//	//刷新文件 提高实时性
+//	[fileHandler synchronizeFile];
+//
+//	[fileHandler closeFile];
 
 }
 

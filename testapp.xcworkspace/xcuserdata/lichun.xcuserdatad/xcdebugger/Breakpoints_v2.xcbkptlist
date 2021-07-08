@@ -23,32 +23,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "86C3A9A6-EDC6-4057-9D47-E6D3179F935B"
+            uuid = "19A80D98-A14A-4B84-AEC8-B777760DA393"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testapp/NewsController/Model/ListLoader.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-_getSandBoxPath"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "-_archiveListDataWithArray:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B736FAF0-8D3E-4751-B533-3DC96D709178"
+            uuid = "6FECB717-4A55-4F3C-957F-DF8604784651"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testapp/NewsController/Model/ListLoader.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-_getSandBoxPath"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "-_archiveListDataWithArray:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
