@@ -79,7 +79,14 @@
 
 	//反序列化
 
-    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [ListItem class],nil] fromData:readListData error:nil];
+//    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [ListItem class],nil] fromData:readListData error:nil];
+
+
+
+	[[NSUserDefaults standardUserDefaults] setObject:listData forKey:@"listData"];
+	NSData *testListdata = [[NSUserDefaults standardUserDefaults] dataForKey:@"listData"];
+
+	id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [ListItem class],nil] fromData:testListdata error:nil];
 
 	//查询文件
 	//BOOL fileExist = [fileManger fileExistsAtPath:listDataPath];
