@@ -13,29 +13,21 @@
 
 - (void) loadListDatawitjFinishBlock:(ListLoaderFinishBlock) finishBlock {
 
-
-//- (void) loadListData {
+    NSArray<ListItem *> *listdata = [self _readDataFromLocal];
+    //如果已有缓存
+    if (listdata) {
+        finishBlock(YES, listdata);
+    }
+    //网络请求
 	NSString *urlString = @"http://v.juhe.cn/toutiao/index?type=top&key=97ad001bfcc2082e2eeaf798bad3d54e";
 	NSURL *listUrl = [NSURL URLWithString:urlString];
 
-//	[[AFHTTPSessionManager manager] GET:@"https://v.juhe.cn/toutiao/index?type=top&key=97ad001bfcc2082e2eeef798bad3d54e" parameters:nil headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-//
-//	 } success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable responseObject) {
-//	         NSLog(@"");
-//	 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//	         NSLog(@"");
-//	 }];
-
-
-
-
-
-	//__unused NSURLRequest *listRequest = [NSURLRequest requestWithURL:listUrl];
 
 	NSURLSession *session = [NSURLSession sharedSession];
-
+    
+    __weak typeof(self) weakSelf = self;
 	NSURLSessionDataTask *dataTask = [session dataTaskWithURL:listUrl completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-
+        __strong typeof(weakSelf) strongSelf = weakSelf;
 	                                          NSError *jsonError;
 	                                          id jsonObj = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
 #warning 类型的检查todo
@@ -46,7 +38,7 @@
 							  [listItem configWithDictionary:info];
 							  [listItemArray addObject:listItem];
 						  }
-	                                          [self _archiveListDataWithArray:listItemArray.copy];
+	                                          [weakSelf _archiveListDataWithArray:listItemArray.copy];
 	                                          dispatch_async(dispatch_get_main_queue(), ^{
 									 if (finishBlock) {
 										 finishBlock(error == nil, listItemArray.copy);
@@ -55,6 +47,26 @@
 					  }];
 
 	[dataTask resume];
+}
+
+#pragma mark - private method
+- (NSArray<ListItem *> *) _readDataFromLocal {
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [pathArray firstObject];
+
+    NSString *listDataPath = [cachePath stringByAppendingPathComponent:@"Data/list"];
+    
+    NSFileManager *fileManger = [NSFileManager defaultManager];
+    
+    NSData *readListData = [fileManger contentsAtPath:listDataPath];
+    
+    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [ListItem class],nil] fromData:readListData error:nil];
+    if ([unarchiveObj isKindOfClass:[NSArray
+                                     class]] && [unarchiveObj count] > 0) {
+        return (NSArray<ListItem *> *) unarchiveObj;
+    }
+    return  nil;
+
 }
 
 - (void) _archiveListDataWithArray:(NSArray<ListItem *> *) array {
@@ -75,7 +87,11 @@
 	[fileManger createFileAtPath:listDataPath contents:listData attributes:nil];
 
 	//读取二进制流文件
-	NSData *readListData = [fileManger contentsAtPath:listDataPath];
+	//NSData *readListData = [fileManger contentsAtPath:listDataPath];
+
+    
+    
+
 
 	//反序列化
 

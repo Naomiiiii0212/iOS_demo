@@ -53,12 +53,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return 100;
 }
-//使用WKWebView实现简单的页面加载
+//点击响应，使用WKWebView实现简单的页面加载
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    ListItem *item = [self.dataArray objectAtIndex:indexPath.row];
-    DetailViewController *controller = [[DetailViewController alloc] initWithUrlString:item.articleUrl];
+	ListItem *item = [self.dataArray objectAtIndex:indexPath.row];
+	DetailViewController *controller = [[DetailViewController alloc] initWithUrlString:item.articleUrl];
 	controller.title = [NSString stringWithFormat:@"%@", @(indexPath.row)];
 	[self.navigationController pushViewController:controller animated:YES];
+
+	//已读临时实现,标志yes点击，语义不明确
+	[[NSUserDefaults standardUserDefaults] setBool:YES forKey:item.uniqueKey];
 }
 
 //UITableViewDataSource
