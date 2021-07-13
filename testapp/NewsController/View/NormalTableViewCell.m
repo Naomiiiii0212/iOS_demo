@@ -7,6 +7,7 @@
 
 #import "NormalTableViewCell.h"
 #import "ListItem.h"
+#import "SDWebImage.h"
 
 @interface NormalTableViewCell ()
 
@@ -125,21 +126,27 @@
 //    [downloadImageThread start];
 
 
-	// GCD实现
-	// 非主队列
-	dispatch_queue_global_t downloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-	// 主队列
-	dispatch_queue_main_t mainQueue = dispatch_get_main_queue();
+//	// GCD实现
+//	// 非主队列
+//	dispatch_queue_global_t downloadQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//	// 主队列
+//	dispatch_queue_main_t mainQueue = dispatch_get_main_queue();
+//
+//	//非主队列实现下载图片逻辑，主队列加载ui展示
+//	dispatch_async(downloadQueue, ^{
+//		UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
+//		dispatch_async(mainQueue, ^{
+//			self.rightImageView.image = image;
+//        });
+//    });
 
-	//非主队列实现加载图片，主队列加载ui
-	dispatch_async(downloadQueue, ^{
-		UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
-		dispatch_async(mainQueue, ^{
-			self.rightImageView.image = image;
-        });
-    });
+
+	// SDWebImage开源图片框架管理图片的下载和存储, SDWebImage是一个强大的网络图像异步缓存框架
+	[self.rightImageView sd_setImageWithURL:[NSURL URLWithString:item.picUrl] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+	         NSLog(@"");
+	 }];
+
 }
-
 
 // 删除按钮动画响应
 - (void) deleteButtonClick {
