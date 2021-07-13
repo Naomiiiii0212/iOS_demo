@@ -87,6 +87,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA672C59269D7C2400324E7E /* VideoController */ = {
+			isa = PBXGroup;
+			children = (
+				DA879759268C75F30062DD3D /* videoViewController.h */,
+				DA87975A268C75F30062DD3D /* videoViewController.m */,
+			);
+			path = VideoController;
+			sourceTree = "<group>";
+		};
 		DA80F8E5268AFF3F004773B8 = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +117,7 @@
 		DA80F8F0268AFF3F004773B8 /* testapp */ = {
 			isa = PBXGroup;
 			children = (
-				DAD517A42696AD67007DD3C5 /* detail */,
+				DA672C59269D7C2400324E7E /* VideoController */,
 				DAD5179F2696AC2E007DD3C5 /* NewsController */,
 				DA8797632692F4A70062DD3D /* img.png */,
 				DA80F8F1268AFF3F004773B8 /* AppDelegate.h */,
@@ -120,8 +129,6 @@
 				DA80F8FF268AFF40004773B8 /* LaunchScreen.storyboard */,
 				DA80F902268AFF40004773B8 /* Info.plist */,
 				DA80F903268AFF40004773B8 /* main.m */,
-				DA879759268C75F30062DD3D /* videoViewController.h */,
-				DA87975A268C75F30062DD3D /* videoViewController.m */,
 				DA87975C268DBDA50062DD3D /* RecommendViewController.h */,
 				DA87975D268DBDA50062DD3D /* RecommendViewController.m */,
 			);
@@ -131,6 +138,7 @@
 		DAD5179F2696AC2E007DD3C5 /* NewsController */ = {
 			isa = PBXGroup;
 			children = (
+				DAD517A42696AD67007DD3C5 /* detail */,
 				DAD517A32696AD32007DD3C5 /* Controller */,
 				DAD517A12696AD00007DD3C5 /* View */,
 				DAD517A02696AC90007DD3C5 /* Model */,
