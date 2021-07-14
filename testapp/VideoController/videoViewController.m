@@ -7,6 +7,7 @@
 
 #import "videoViewController.h"
 #import "NormalTableViewCell.h"
+#import "VideoCoverView.h"
 
 @interface videoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -34,17 +35,18 @@
 	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
 	flowLayout.minimumLineSpacing = 10;
 	flowLayout.minimumInteritemSpacing = 10;
-    //size
+	// 每个cell视频源占满整个屏幕，上下滑动切换cell，因此每滑动两个cell就会进行cell复用
 	flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
 
 	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
 
 	collectionView.dataSource = self;
 	collectionView.delegate = self;
-	//必须先注册 Cell 类型⽤于重用
-	[collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
-    //视频翻页
-    collectionView.pagingEnabled = YES;
+	// 必须先注册 Cell 类型⽤于重用
+	// VideoCoverView替换
+	[collectionView registerClass:[VideoCoverView class] forCellWithReuseIdentifier:@"VideoCoverView"];
+	// 视频翻页
+	collectionView.pagingEnabled = YES;
 	[self.view addSubview:collectionView];
 }
 
@@ -55,8 +57,11 @@
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-	cell.backgroundColor = [UIColor redColor];
+	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoCoverView" forIndexPath:indexPath];
+    if ([cell isKindOfClass:[VideoCoverView class]]) {
+        // 视频播放
+        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
+    }
 	return cell;
 }
 
