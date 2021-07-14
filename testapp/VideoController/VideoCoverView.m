@@ -35,8 +35,16 @@
         // 加入手势，播放按钮响应
         UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_tapToPlay)];
         [self addGestureRecognizer:tapGesture];
+        
+        // 中心化管理，监听视频播放结束
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_handlePlayEnd) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
     }
     return self;
+}
+
+// 将自己从单例中移除，单例是整个生命周期
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - public method
@@ -60,6 +68,10 @@
     
     [avPlater play];
     
+    NSLog(@"");
+}
+
+- (void) _handlePlayEnd {
     NSLog(@"");
 }
 
