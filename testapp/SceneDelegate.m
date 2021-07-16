@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "videoViewController.h"
 #import "RecommendViewController.h"
+#import "MainViewController.h"
+
 @interface SceneDelegate ()
 
 @end
@@ -31,14 +33,15 @@
 	UITabBarController *tabbarController = [[UITabBarController alloc] init];
 
 	ViewController *viewController = [[ViewController alloc] init];
-
+    MainViewController *mainScrollView = [[MainViewController alloc] init];
+    mainScrollView.tabBarItem.title = @"首页";
 
 	//tabbar,app底部按钮,选中切换对应的uiviewcontroller
 	//UIViewController *controller1 = [[UIViewController alloc] init];
 	viewController.view.backgroundColor = [UIColor redColor];
-	viewController.tabBarItem.title = @"首页";
+	viewController.tabBarItem.title = @"新闻";
 
-	videoViewController *videoController = [[videoViewController alloc] init];
+	//videoViewController *videoController = [[videoViewController alloc] init];
 	RecommendViewController *recommendController = [[RecommendViewController alloc] init];
 
 
@@ -55,7 +58,7 @@
 	controller4.tabBarItem.title = @"我";
 
 	// 将四个页面的 UIViewController 加入到 UITabBarController 之中
-	[tabbarController setViewControllers: @[viewController, videoController, recommendController, controller4]];
+	[tabbarController setViewControllers: @[mainScrollView, viewController, recommendController, controller4]];
 
 	//设置self为delegate的接收者，也是实现方法的对象，使用者按需实现方法
 	tabbarController.delegate = self;
