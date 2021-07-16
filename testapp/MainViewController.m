@@ -42,9 +42,9 @@
 	[self.view addSubview:_mainScrollView];
 
 	NSArray *views = @[self.firstVc.view,self.secondVc.view, self.thirdVc.view];
-	for (NSInteger i = 0; i<self.btnsArray.count; i++) {
+	for (NSInteger i = 0; i < self.btnsArray.count; ++i) {
 		//把三个videoViewController的view依次贴到_mainScrollView上面
-		UIView *pageView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth*i, 0, _mainScrollView.frame.size.width, _mainScrollView.frame.size.height-100)];
+		UIView *pageView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth * i, 0, _mainScrollView.frame.size.width, _mainScrollView.frame.size.height - 100)];
 		[pageView addSubview:views[i]];
 		[_mainScrollView addSubview:pageView];
 	}
@@ -112,16 +112,16 @@
 		self.btnContainerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
 		self.navigationItem.titleView = _btnContainerView;
 
-		_slideLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40-2, kScreenWidth/3, 4)];
+		_slideLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40 - 2, kScreenWidth / 3, 4)];
 		_slideLabel.backgroundColor = [UIColor redColor];
 
 		[_btnContainerView addSubview:_slideLabel];
 
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 3; ++i) {
 			UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
 			[btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
 			[btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-			btn.frame = CGRectMake(i*kScreenWidth/4 - 10,0, kScreenWidth/3, _btnContainerView.frame.size.height);
+			btn.frame = CGRectMake(i * kScreenWidth/3 - 10,0, kScreenWidth / 3, _btnContainerView.frame.size.height);
 			btn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
 			[btn addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
 			[btn setTitle:[NSString stringWithFormat:@"第%d个",i] forState:UIControlStateNormal];

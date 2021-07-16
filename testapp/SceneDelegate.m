@@ -53,22 +53,40 @@
 //    controller3.view.backgroundColor = [UIColor blueColor];
 //    controller3.tabBarItem.title = @"消息";
 
-	UIViewController *controller4 = [[UIViewController alloc] init];
-	controller4.view.backgroundColor = [UIColor greenColor];
-	controller4.tabBarItem.title = @"我";
+//	UIViewController *center = [[UIViewController alloc] init];
+//
+//    UIButton * centerButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [centerButton setImage:[UIImage imageNamed:@"icon.bundle/btn_home_add_common.png"] forState:UIControlStateNormal];
+//    me.tabBarItem = centerButton;
+    
+    UIViewController *center = [[UIViewController alloc] init];
+    // 设置image时，指明图片渲染模式为AlwaysOriginal,解决设置后不显示的问题
+    center.tabBarItem.image = [[UIImage imageNamed:@"icon.bundle/camera.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    UIViewController *me = [[UIViewController alloc] init];
+    me.view.backgroundColor = [UIColor greenColor];
+    me.tabBarItem.title = @"我";
 
 	// 将四个页面的 UIViewController 加入到 UITabBarController 之中
-	[tabbarController setViewControllers: @[mainScrollView, viewController, recommendController, controller4]];
-
+	[tabbarController setViewControllers: @[mainScrollView, viewController, center, recommendController, me]];
+    tabbarController.tabBar.backgroundColor = [UIColor blackColor];
+    
 	//设置self为delegate的接收者，也是实现方法的对象，使用者按需实现方法
 	tabbarController.delegate = self;
 
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
+    
+    // 更改半透明黑色UINavigationBar的颜色
+    navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    [navigationController.navigationBar setTranslucent:YES];
+//    [navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    [navigationController.navigationBar setShadowImage:[UIImage new]];
 
 	self.window.rootViewController = navigationController;
 	[self.window makeKeyAndVisible];
 
 }
+
 
 //切换viewcontroller 切换完成自定义根据需求按需实现方法
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
