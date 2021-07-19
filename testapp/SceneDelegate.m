@@ -81,7 +81,10 @@
     [navigationController.navigationBar setTranslucent:YES];
 //    [navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 //    [navigationController.navigationBar setShadowImage:[UIImage new]];
-
+//    [navigationController.navigationBar setTintColor:[UIColor grayColor]];
+    
+    
+    
 	self.window.rootViewController = navigationController;
 	[self.window makeKeyAndVisible];
 

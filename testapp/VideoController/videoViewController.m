@@ -36,23 +36,26 @@
 	flowLayout.minimumLineSpacing = 10;
 	flowLayout.minimumInteritemSpacing = 10;
 	// 每个cell视频源占满整个屏幕，上下滑动切换cell，因此每滑动两个cell就会进行cell复用
-	flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+	 flowLayout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
 
 	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
 
+    
 	collectionView.dataSource = self;
 	collectionView.delegate = self;
 	// 必须先注册 Cell 类型⽤于重用
 	// VideoCoverView替换
 	[collectionView registerClass:[VideoCoverView class] forCellWithReuseIdentifier:@"VideoCoverView"];
-	// 视频翻页
+	
+    // 视频翻页
 	collectionView.pagingEnabled = YES;
+    
 	[self.view addSubview:collectionView];
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-	return 20;
+	return 30;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:

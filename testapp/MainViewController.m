@@ -48,7 +48,7 @@
 		[pageView addSubview:views[i]];
 		[_mainScrollView addSubview:pageView];
 	}
-	_mainScrollView.contentSize = CGSizeMake(kScreenWidth*(views.count), 0);
+	_mainScrollView.contentSize = CGSizeMake(kScreenWidth * (views.count), 0);
 }
 
 // 通过设置contentOffset，这里的sender是被点击的按钮 通过给每一个按钮绑定一个tag来实现滚动距离的设置
