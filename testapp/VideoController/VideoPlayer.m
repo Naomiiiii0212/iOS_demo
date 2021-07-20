@@ -31,7 +31,11 @@
 
 - (void) playVideoWithUrl: (NSString *)videoUrl attachView:(UIView *) attachView {
     [self _stopPlay];
-	NSURL *videoURL = [NSURL URLWithString:videoUrl];
+    
+    // 播放本地视频
+    NSURL *videoURL = [NSURL fileURLWithPath:videoUrl];
+    
+    // NSURL *videoURL = [NSURL URLWithString:videoUrl];
 	AVAsset *asset = [AVAsset assetWithURL:videoURL];
 	_videoItem = [AVPlayerItem playerItemWithAsset:asset];
 	[_videoItem addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
