@@ -67,6 +67,7 @@
     me.view.backgroundColor = [UIColor greenColor];
     me.tabBarItem.title = @"我";
 
+    
 	// 将四个页面的 UIViewController 加入到 UITabBarController 之中
 	[tabbarController setViewControllers: @[mainScrollView, viewController, center, recommendController, me]];
     tabbarController.tabBar.backgroundColor = [UIColor blackColor];

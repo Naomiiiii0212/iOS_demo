@@ -14,6 +14,9 @@
 		DA26F9AC26A1308500D40434 /* btn_home_add_common.png in Resources */ = {isa = PBXBuildFile; fileRef = DA26F9AB26A1308500D40434 /* btn_home_add_common.png */; };
 		DA672C5C269D89C500324E7E /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA672C5B269D89C500324E7E /* VideoCoverView.m */; };
 		DA672C5E269D931400324E7E /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA672C5D269D931400324E7E /* icon.bundle */; };
+		DA76E02126A919CF00F759DE /* CollectionWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DA76E02026A919CF00F759DE /* CollectionWaterfallLayout.m */; };
+		DA76E02926A91A5700F759DE /* WFHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA76E02526A91A5700F759DE /* WFHeaderView.m */; };
+		DA76E02B26A91B0900F759DE /* WFHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA76E02A26A91B0900F759DE /* WFHeaderView.xib */; };
 		DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80F8F2268AFF3F004773B8 /* AppDelegate.m */; };
 		DA80F8F6268AFF3F004773B8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80F8F5268AFF3F004773B8 /* SceneDelegate.m */; };
 		DA80F8F9268AFF3F004773B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80F8F8268AFF3F004773B8 /* ViewController.m */; };
@@ -44,6 +47,11 @@
 		DA672C5A269D89C500324E7E /* VideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCoverView.h; sourceTree = "<group>"; };
 		DA672C5B269D89C500324E7E /* VideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCoverView.m; sourceTree = "<group>"; };
 		DA672C5D269D931400324E7E /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
+		DA76E01F26A919CF00F759DE /* CollectionWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionWaterfallLayout.h; sourceTree = "<group>"; };
+		DA76E02026A919CF00F759DE /* CollectionWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionWaterfallLayout.m; sourceTree = "<group>"; };
+		DA76E02526A91A5700F759DE /* WFHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFHeaderView.m; sourceTree = "<group>"; };
+		DA76E02626A91A5700F759DE /* WFHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFHeaderView.h; sourceTree = "<group>"; };
+		DA76E02A26A91B0900F759DE /* WFHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFHeaderView.xib; sourceTree = "<group>"; };
 		DA80F8EE268AFF3F004773B8 /* testapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA80F8F1268AFF3F004773B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA80F8F2268AFF3F004773B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,6 +124,36 @@
 			path = VideoController;
 			sourceTree = "<group>";
 		};
+		DA76E01E26A919CF00F759DE /* CollectionWaterfallLayout */ = {
+			isa = PBXGroup;
+			children = (
+				DA76E02326A91A3600F759DE /* Controller */,
+				DA76E02226A91A1100F759DE /* View */,
+			);
+			path = CollectionWaterfallLayout;
+			sourceTree = "<group>";
+		};
+		DA76E02226A91A1100F759DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DA76E01F26A919CF00F759DE /* CollectionWaterfallLayout.h */,
+				DA76E02026A919CF00F759DE /* CollectionWaterfallLayout.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA76E02326A91A3600F759DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA87975C268DBDA50062DD3D /* RecommendViewController.h */,
+				DA87975D268DBDA50062DD3D /* RecommendViewController.m */,
+				DA76E02626A91A5700F759DE /* WFHeaderView.h */,
+				DA76E02526A91A5700F759DE /* WFHeaderView.m */,
+				DA76E02A26A91B0900F759DE /* WFHeaderView.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		DA80F8E5268AFF3F004773B8 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +175,7 @@
 		DA80F8F0268AFF3F004773B8 /* testapp */ = {
 			isa = PBXGroup;
 			children = (
+				DA76E01E26A919CF00F759DE /* CollectionWaterfallLayout */,
 				DA672C59269D7C2400324E7E /* VideoController */,
 				DAD5179F2696AC2E007DD3C5 /* NewsController */,
 				DA8797632692F4A70062DD3D /* img.png */,
@@ -152,8 +191,6 @@
 				DA80F8FF268AFF40004773B8 /* LaunchScreen.storyboard */,
 				DA80F902268AFF40004773B8 /* Info.plist */,
 				DA80F903268AFF40004773B8 /* main.m */,
-				DA87975C268DBDA50062DD3D /* RecommendViewController.h */,
-				DA87975D268DBDA50062DD3D /* RecommendViewController.m */,
 				DA672C5D269D931400324E7E /* icon.bundle */,
 				DA90A0C926A6BCA80046C09B /* HoverViewFlowLayout.h */,
 				DA90A0CA26A6BCA80046C09B /* HoverViewFlowLayout.m */,
@@ -272,6 +309,7 @@
 				DA26F9AC26A1308500D40434 /* btn_home_add_common.png in Resources */,
 				DA672C5E269D931400324E7E /* icon.bundle in Resources */,
 				DA80F901268AFF40004773B8 /* LaunchScreen.storyboard in Resources */,
+				DA76E02B26A91B0900F759DE /* WFHeaderView.xib in Resources */,
 				DA80F8FE268AFF40004773B8 /* Assets.xcassets in Resources */,
 				DA80F8FC268AFF3F004773B8 /* Main.storyboard in Resources */,
 				DA8797642692F4A70062DD3D /* img.png in Resources */,
@@ -312,12 +350,14 @@
 			files = (
 				DAFD55F52695BDCC00FDF4B0 /* ListLoader.m in Sources */,
 				DA80F8F9268AFF3F004773B8 /* ViewController.m in Sources */,
+				DA76E02126A919CF00F759DE /* CollectionWaterfallLayout.m in Sources */,
 				DAD517A72696ADDB007DD3C5 /* ListItem.m in Sources */,
 				DA042C3A2695505D00C4160E /* DeleteCellView.m in Sources */,
 				DA26F9AA26A11E0400D40434 /* MainViewController.m in Sources */,
 				DA90A0CB26A6BCA80046C09B /* HoverViewFlowLayout.m in Sources */,
 				DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */,
 				DA80F904268AFF40004773B8 /* main.m in Sources */,
+				DA76E02926A91A5700F759DE /* WFHeaderView.m in Sources */,
 				DA87976726931AE30062DD3D /* DetailViewController.m in Sources */,
 				DA238CA326A55C5D0015B994 /* VideoPlayer.m in Sources */,
 				DA87975B268C75F30062DD3D /* videoViewController.m in Sources */,

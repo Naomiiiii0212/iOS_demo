@@ -17,24 +17,28 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - XRWaterfallLayout (0.1.2)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking
   - SDWebImage
+  - XRWaterfallLayout
   - YYModel
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - SDWebImage
+    - XRWaterfallLayout
     - YYModel
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  XRWaterfallLayout: 8d615c21e7be46dc220e0ece45697fdd4bfa0f3b
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 8c58c429234623681e483737fe86ac8cc7085e0a
+PODFILE CHECKSUM: 2d72a609d3131066e0f18221c7ce7da63a8c46fb
 
 COCOAPODS: 1.10.1
