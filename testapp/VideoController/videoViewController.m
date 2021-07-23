@@ -6,7 +6,7 @@
 //
 
 #import "videoViewController.h"
-#import "NormalTableViewCell.h"
+//#import "NormalTableViewCell.h"
 #import "VideoCoverView.h"
 
 @interface videoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -48,7 +48,7 @@
 	[collectionView registerClass:[VideoCoverView class] forCellWithReuseIdentifier:@"VideoCoverView"];
 	
     // 视频翻页
-	collectionView.pagingEnabled = YES;
+	collectionView.pagingEnabled = NO;
     
 	[self.view addSubview:collectionView];
 }
@@ -63,7 +63,7 @@
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoCoverView" forIndexPath:indexPath];
     if ([cell isKindOfClass:[VideoCoverView class]]) {
         // 视频播放
-        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"Users/lichun/Desktop/temp/ksdemo.mp4"];
+        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/cover.png" videoUrl:@"Users/lichun/Desktop/temp/ksdemo.mp4"];
         //[((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
     }
 	return cell;

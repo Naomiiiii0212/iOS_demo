@@ -90,9 +90,9 @@
 	return _firstVc;
 }
 
-- (videoViewController *)secondVc {
+- (RecommendViewController *)secondVc {
 	if (!_secondVc) {
-		_secondVc = [[videoViewController alloc]init];
+		_secondVc = [[RecommendViewController alloc]init];
 	}
 	return _secondVc;
 }
