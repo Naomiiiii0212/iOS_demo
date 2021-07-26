@@ -8,142 +8,140 @@
 #import "MainViewController.h"
 #import "videoViewController.h"
 #import "RecommendViewController.h"
+
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavigationBarHeight 44.0
+#define kTabbarHeight 49.5
+#define kSafeAreaHeight [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom
 
 @interface MainViewController ()<UIScrollViewDelegate>
 
 @property (nonatomic, strong, readwrite) UIScrollView *mainScrollView;
-@property (nonatomic, strong, readwrite) videoViewController *firstVc;
-@property (nonatomic, strong, readwrite) videoViewController *secondVc;
-@property (nonatomic, strong, readwrite) videoViewController *thirdVc;
-@property (nonatomic, strong, readwrite) UIView *btnContainerView;
-@property (nonatomic, strong, readwrite) UILabel *slideLabel;
-@property (nonatomic, strong, readwrite) NSMutableArray *btnsArray;
+@property(nonatomic, strong) UIView *slideBGView;
+@property(nonatomic, strong) UIView *slideLine;
+@property(nonatomic, strong) UIButton *currentSelectBtn;
 
 @end
 
 @implementation MainViewController
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
-
-	[self setMainSrollView];
+    [super viewDidLoad];
+    
+    [self setupChildViewControllers];
+    
+    [self setupView];
+    
+    [self showDefaultViewWithIndex:2];
 }
 
-
-// 整体思路：在一个控制器中放置一个UIScrollView，新建三个子控制器，并将这三个子控制器的view加入到scrollView中，在导航栏的titleView中加入三个按钮以及一个滑动的Label
--(void)setMainSrollView {
-	_mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, self.view.frame.size.height)];
-	_mainScrollView.delegate = self;
-	_mainScrollView.backgroundColor = [UIColor whiteColor];
-	_mainScrollView.pagingEnabled = YES;
-	_mainScrollView.showsHorizontalScrollIndicator = NO;
-	_mainScrollView.showsVerticalScrollIndicator = NO;
-	[self.view addSubview:_mainScrollView];
-
-	NSArray *views = @[self.firstVc.view,self.secondVc.view, self.thirdVc.view];
-	for (NSInteger i = 0; i < self.btnsArray.count; ++i) {
-		//把三个videoViewController的view依次贴到_mainScrollView上面
-		UIView *pageView = [[UIView alloc]initWithFrame:CGRectMake(kScreenWidth * i, 0, _mainScrollView.frame.size.width, _mainScrollView.frame.size.height - 100)];
-		[pageView addSubview:views[i]];
-		[_mainScrollView addSubview:pageView];
-	}
-	_mainScrollView.contentSize = CGSizeMake(kScreenWidth * (views.count), 0);
+#pragma mark - 初始化页面
+- (void)setupView{
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.slideBGView];
+    
+    [self.view addSubview:self.mainScrollView];
+    self.mainScrollView.contentSize = CGSizeMake(kScreenWidth * self.childViewControllers.count, 0);
 }
 
-// 通过设置contentOffset，这里的sender是被点击的按钮 通过给每一个按钮绑定一个tag来实现滚动距离的设置
--(void)sliderAction:(UIButton *)sender {
-	[self sliderAnimationWithTag:sender.tag];
-	[UIView animateWithDuration:0.3 animations:^{
-	         _mainScrollView.contentOffset = CGPointMake(kScreenWidth*(sender.tag), 0);
-	 } completion:^(BOOL finished) {
-
-	 }];
+#pragma mark - 添加子控制器
+- (void)setupChildViewControllers{
+    videoViewController *vc1 = [[videoViewController alloc]init];
+    [self addChildViewController:vc1];
+    RecommendViewController *vc2 = [[RecommendViewController alloc] init];
+    [self addChildViewController:vc2];
+    videoViewController *vc3 = [[videoViewController alloc]init];
+    [self addChildViewController:vc3];
 }
 
-
-
--(void)sliderAnimationWithTag:(NSInteger)tag {
-	[self.btnsArray enumerateObjectsUsingBlock:^(UIButton *btn, NSUInteger idx, BOOL * _Nonnull stop) {
-	         btn.selected = NO;
-	 }];
-	//获取被选中的按钮
-	UIButton *selectedBtn = self.btnsArray[tag];
-	selectedBtn.selected = YES;
-	//动画
-	[UIView animateWithDuration:0.3 animations:^{
-	         _slideLabel.center = CGPointMake(selectedBtn.center.x, _slideLabel.center.y);
-	 } completion:^(BOOL finished) {
-	         [self.btnsArray enumerateObjectsUsingBlock:^(UIButton *btn, NSUInteger idx, BOOL * _Nonnull stop) {
-	                  btn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
-		  }];
-	         selectedBtn.titleLabel.font = [UIFont boldSystemFontOfSize:19];
-	 }];
+#pragma mark - 设置第一次展示的vc
+- (void)showDefaultViewWithIndex:(NSInteger)index{
+    if (index < 0) {
+        return;
+    }
+    [self.mainScrollView setContentOffset:CGPointMake(kScreenWidth * index, 0) animated:YES];
+    [self showViewWithIndex:index];
 }
 
-
-#pragma mark- 懒加载
-- (videoViewController *)firstVc {
-	if (!_firstVc) {
-		_firstVc = [[videoViewController alloc]init];
-	}
-	return _firstVc;
+#pragma mark - UIScrollViewDelegate ScrollView代理
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
+    [self showViewWithIndex:index];
 }
 
-- (RecommendViewController *)secondVc {
-	if (!_secondVc) {
-		_secondVc = [[RecommendViewController alloc]init];
-	}
-	return _secondVc;
+#pragma mark - 点击按钮
+- (void)clickFunBtn:(UIButton *)btn{
+    NSInteger index = btn.tag-1;
+    [self showDefaultViewWithIndex:index];
 }
 
-- (videoViewController *)thirdVc {
-	if (!_thirdVc) {
-		_thirdVc = [[videoViewController alloc]init];
-	}
-	return _thirdVc;
+#pragma mark - private
+- (void)showViewWithIndex:(NSInteger)index{
+
+    UIButton *btn = [self.slideBGView viewWithTag:index+1];
+    if (btn == self.currentSelectBtn) {
+        return;
+    }
+    
+    UIViewController *vc = self.childViewControllers[index];
+    vc.view.frame = CGRectMake(kScreenWidth * index, 0, self.mainScrollView.bounds.size.width, self.mainScrollView.bounds.size.height);
+    [self.mainScrollView addSubview:vc.view];
+    
+    CGFloat w = kScreenWidth / self.childViewControllers.count;
+    [UIView animateWithDuration:0.25 animations:^{
+        self.slideLine.frame = CGRectMake(w * index + 0.2 * w, 40, 0.6 * w, 4);
+    }];
+    
+    self.currentSelectBtn.selected = NO;
+    btn.selected = YES;
+    self.currentSelectBtn = btn;
 }
 
-
-
-- (NSMutableArray *)btnsArray {
-	if (!_btnsArray) {
-		_btnsArray = [NSMutableArray array];
-		self.btnContainerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
-		self.navigationItem.titleView = _btnContainerView;
-
-		_slideLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 40 - 2, kScreenWidth / 3, 4)];
-		_slideLabel.backgroundColor = [UIColor redColor];
-
-		[_btnContainerView addSubview:_slideLabel];
-
-		for (int i = 0; i < 3; ++i) {
-			UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-			[btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
-			[btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-			btn.frame = CGRectMake(i * kScreenWidth/3 - 10,0, kScreenWidth / 3, _btnContainerView.frame.size.height);
-			btn.titleLabel.font = [UIFont boldSystemFontOfSize:16];
-			[btn addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
-			[btn setTitle:[NSString stringWithFormat:@"第%d个",i] forState:UIControlStateNormal];
-			btn.tag = i;
-			[_btnsArray addObject:btn];
-			if (i == 0) {
-				btn.selected = YES;
-				btn.titleLabel.font = [UIFont boldSystemFontOfSize:19];
-
-			}
-			[_btnContainerView addSubview:btn];
-		}
-	}
-	return _btnsArray;
+#pragma mark- getter & setter
+- (UIScrollView *)mainScrollView{
+    if (_mainScrollView == nil) {
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight + kStatusBarHeight + 44, kScreenWidth, kScreenHeight-kNavigationBarHeight-kStatusBarHeight-44-kTabbarHeight-kSafeAreaHeight)];
+        _mainScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        _mainScrollView.delegate = self;
+        _mainScrollView.backgroundColor = [UIColor whiteColor];
+        _mainScrollView.pagingEnabled = YES;
+        _mainScrollView.showsHorizontalScrollIndicator = NO;
+        _mainScrollView.showsVerticalScrollIndicator = NO;
+    }
+    return _mainScrollView;
 }
 
-
-//scrollView滑动代理监听,在代理方法中通过一个tag值来让导航栏上的按钮被选中
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-	double index_ = scrollView.contentOffset.x/kScreenWidth;
-	[self sliderAnimationWithTag:(int)(index_+0.5)];
+- (UIView *)slideBGView{
+    if (_slideBGView == nil) {
+        _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight+kNavigationBarHeight, kScreenWidth, 44)];
+        _slideBGView.backgroundColor = [UIColor whiteColor];
+        
+        CGFloat w = kScreenWidth / self.childViewControllers.count;
+        for (int i = 0; i < self.childViewControllers.count; i++) {
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            btn.frame = CGRectMake(w * i, 0, w, 44);
+            btn.tag = i + 1;
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
+            [btn setTitle:[NSString stringWithFormat:@"%i",i] forState:UIControlStateNormal];
+            [btn addTarget:self action:@selector(clickFunBtn:) forControlEvents:UIControlEventTouchUpInside];
+            [_slideBGView addSubview:btn];
+        }
+        self.slideLine.tag = self.childViewControllers.count;
+        [_slideBGView addSubview:self.slideLine];
+    }
+    return _slideBGView;
 }
 
+- (UIView *)slideLine{
+    if (_slideLine == nil) {
+        _slideLine = [[UIView alloc] init];
+        _slideLine.backgroundColor = [UIColor redColor];
+    }
+    return _slideLine;
+}
 
 @end

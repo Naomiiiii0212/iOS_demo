@@ -12,6 +12,7 @@
 		DA238CA326A55C5D0015B994 /* VideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA238CA226A55C5D0015B994 /* VideoPlayer.m */; };
 		DA26F9AA26A11E0400D40434 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26F9A926A11E0400D40434 /* MainViewController.m */; };
 		DA26F9AC26A1308500D40434 /* btn_home_add_common.png in Resources */ = {isa = PBXBuildFile; fileRef = DA26F9AB26A1308500D40434 /* btn_home_add_common.png */; };
+		DA40786F26AED6E600ED1C52 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA40786E26AED6E600ED1C52 /* MainTabBarViewController.m */; };
 		DA672C5C269D89C500324E7E /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA672C5B269D89C500324E7E /* VideoCoverView.m */; };
 		DA672C5E269D931400324E7E /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA672C5D269D931400324E7E /* icon.bundle */; };
 		DA76E02126A919CF00F759DE /* CollectionWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DA76E02026A919CF00F759DE /* CollectionWaterfallLayout.m */; };
@@ -29,7 +30,6 @@
 		DA8797612692A7280062DD3D /* NormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8797602692A7280062DD3D /* NormalTableViewCell.m */; };
 		DA8797642692F4A70062DD3D /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8797632692F4A70062DD3D /* img.png */; };
 		DA87976726931AE30062DD3D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87976626931AE30062DD3D /* DetailViewController.m */; };
-		DA90A0CB26A6BCA80046C09B /* HoverViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DA90A0CA26A6BCA80046C09B /* HoverViewFlowLayout.m */; };
 		DAD517A72696ADDB007DD3C5 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD517A62696ADDB007DD3C5 /* ListItem.m */; };
 		DAFD55F52695BDCC00FDF4B0 /* ListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD55F42695BDCC00FDF4B0 /* ListLoader.m */; };
 /* End PBXBuildFile section */
@@ -44,6 +44,8 @@
 		DA26F9A826A11E0400D40434 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		DA26F9A926A11E0400D40434 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		DA26F9AB26A1308500D40434 /* btn_home_add_common.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_home_add_common.png; sourceTree = "<group>"; };
+		DA40786D26AED6E600ED1C52 /* MainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		DA40786E26AED6E600ED1C52 /* MainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		DA672C5A269D89C500324E7E /* VideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCoverView.h; sourceTree = "<group>"; };
 		DA672C5B269D89C500324E7E /* VideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCoverView.m; sourceTree = "<group>"; };
 		DA672C5D269D931400324E7E /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
@@ -73,8 +75,6 @@
 		DA8797632692F4A70062DD3D /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		DA87976526931AE30062DD3D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		DA87976626931AE30062DD3D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		DA90A0C926A6BCA80046C09B /* HoverViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoverViewFlowLayout.h; sourceTree = "<group>"; };
-		DA90A0CA26A6BCA80046C09B /* HoverViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HoverViewFlowLayout.m; sourceTree = "<group>"; };
 		DAD517A52696ADDB007DD3C5 /* ListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
 		DAD517A62696ADDB007DD3C5 /* ListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
 		DAFD55F32695BDCC00FDF4B0 /* ListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListLoader.h; sourceTree = "<group>"; };
@@ -185,6 +185,8 @@
 				DA80F8F5268AFF3F004773B8 /* SceneDelegate.m */,
 				DA26F9A826A11E0400D40434 /* MainViewController.h */,
 				DA26F9A926A11E0400D40434 /* MainViewController.m */,
+				DA40786D26AED6E600ED1C52 /* MainTabBarViewController.h */,
+				DA40786E26AED6E600ED1C52 /* MainTabBarViewController.m */,
 				DA80F8FA268AFF3F004773B8 /* Main.storyboard */,
 				DA80F8FD268AFF40004773B8 /* Assets.xcassets */,
 				DA26F9AB26A1308500D40434 /* btn_home_add_common.png */,
@@ -192,8 +194,6 @@
 				DA80F902268AFF40004773B8 /* Info.plist */,
 				DA80F903268AFF40004773B8 /* main.m */,
 				DA672C5D269D931400324E7E /* icon.bundle */,
-				DA90A0C926A6BCA80046C09B /* HoverViewFlowLayout.h */,
-				DA90A0CA26A6BCA80046C09B /* HoverViewFlowLayout.m */,
 			);
 			path = testapp;
 			sourceTree = "<group>";
@@ -354,7 +354,6 @@
 				DAD517A72696ADDB007DD3C5 /* ListItem.m in Sources */,
 				DA042C3A2695505D00C4160E /* DeleteCellView.m in Sources */,
 				DA26F9AA26A11E0400D40434 /* MainViewController.m in Sources */,
-				DA90A0CB26A6BCA80046C09B /* HoverViewFlowLayout.m in Sources */,
 				DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */,
 				DA80F904268AFF40004773B8 /* main.m in Sources */,
 				DA76E02926A91A5700F759DE /* WFHeaderView.m in Sources */,
@@ -363,6 +362,7 @@
 				DA87975B268C75F30062DD3D /* videoViewController.m in Sources */,
 				DA672C5C269D89C500324E7E /* VideoCoverView.m in Sources */,
 				DA80F8F6268AFF3F004773B8 /* SceneDelegate.m in Sources */,
+				DA40786F26AED6E600ED1C52 /* MainTabBarViewController.m in Sources */,
 				DA87975E268DBDA50062DD3D /* RecommendViewController.m in Sources */,
 				DA8797612692A7280062DD3D /* NormalTableViewCell.m in Sources */,
 			);

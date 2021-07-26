@@ -42,8 +42,7 @@ static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeader
     return self;
 }
 
-- (void)loadView
-{
+- (void)loadView {
     [super loadView];
     [self.view addSubview:self.collectionView];
 }

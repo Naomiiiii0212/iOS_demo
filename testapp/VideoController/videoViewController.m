@@ -6,10 +6,24 @@
 //
 
 #import "videoViewController.h"
-//#import "NormalTableViewCell.h"
+#import "CollectionWaterfallLayout.h"
 #import "VideoCoverView.h"
 
-@interface videoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+#define StatusBarHeight ([UIApplication sharedApplication].statusBarFrame.size.height)
+#define NavigationBarHeight (self.navigationController.navigationBar.frame.size.height)
+#define TabBarHeight (self.tabBarController.tabBar.frame.size.height)
+
+#define ScreenWidth ([[UIScreen mainScreen] bounds].size.width)
+#define ScreenHeight ([[UIScreen mainScreen] bounds].size.height)
+
+static NSString *const kCollectionViewItemReusableID = @"kCollectionViewItemReusableID";
+static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeaderReusableID";
+
+@interface videoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, CollectionWaterfallLayoutProtocol>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) CollectionWaterfallLayout *waterfallLayout;
+@property (nonatomic, strong) NSMutableArray *dataList;
 
 @end
 
@@ -25,10 +39,17 @@
 	return self;
 }
 
+- (void) loadView {
+    [super loadView];
+    [self.view addSubview:self.collectionView];
+}
+
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
 	//UICollectionViewCell *collectcell = [[UICollectionViewCell alloc] init];
+    self.navigationController.navigationBar.translucent = NO;
 	self.view.backgroundColor = [UIColor whiteColor];
 
 	//系统提供默认的流式布局
@@ -48,7 +69,7 @@
 	[collectionView registerClass:[VideoCoverView class] forCellWithReuseIdentifier:@"VideoCoverView"];
 	
     // 视频翻页
-	collectionView.pagingEnabled = NO;
+	collectionView.pagingEnabled = YES;
     
 	[self.view addSubview:collectionView];
 }
@@ -63,7 +84,7 @@
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VideoCoverView" forIndexPath:indexPath];
     if ([cell isKindOfClass:[VideoCoverView class]]) {
         // 视频播放
-        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/cover.png" videoUrl:@"Users/lichun/Desktop/temp/ksdemo.mp4"];
+        [((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"Users/lichun/Desktop/temp/ksdemo.mp4"];
         //[((VideoCoverView *) cell) layoutWithVideoCoverUrl:@"icon.bundle/img.png" videoUrl:@"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
     }
 	return cell;
