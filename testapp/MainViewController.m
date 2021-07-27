@@ -42,9 +42,13 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.mainScrollView];
+<<<<<<< HEAD
     self.mainScrollView.contentSize = CGSizeMake(kScreenWidth*self.childViewControllers.count, 0);
     
     [self.view addSubview:self.slideBGView];
+=======
+    self.mainScrollView.contentSize = CGSizeMake(kScreenWidth * self.childViewControllers.count, 0);
+>>>>>>> parent of 13ce105 (高度用CGFloat)
 }
 
 #pragma mark - 添加子控制器
@@ -62,13 +66,22 @@
     if (index<0) {
         return;
     }
+<<<<<<< HEAD
     [self.mainScrollView setContentOffset:CGPointMake(kScreenWidth*index, 0) animated:YES];
+=======
+    [self.mainScrollView setContentOffset:CGPointMake(kScreenWidth * index, 0) animated:YES];
+>>>>>>> parent of 13ce105 (高度用CGFloat)
     [self showViewWithIndex:index];
 }
 
 #pragma mark - UIScrollViewDelegate ScrollView代理
+<<<<<<< HEAD
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     NSInteger index = scrollView.contentOffset.x/kScreenWidth;
+=======
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
+>>>>>>> parent of 13ce105 (高度用CGFloat)
     [self showViewWithIndex:index];
 }
 
@@ -87,10 +100,17 @@
     }
     
     UIViewController *vc = self.childViewControllers[index];
+<<<<<<< HEAD
     vc.view.frame = CGRectMake(kScreenWidth*index, 0, self.mainScrollView.bounds.size.width, self.mainScrollView.bounds.size.height);
     [self.mainScrollView addSubview:vc.view];
     
     CGFloat w = kScreenWidth/self.childViewControllers.count;
+=======
+    vc.view.frame = CGRectMake(kScreenWidth * index, 0, self.mainScrollView.bounds.size.width, self.mainScrollView.bounds.size.height);
+    [self.mainScrollView addSubview:vc.view];
+    
+    CGFloat w = kScreenWidth / self.childViewControllers.count;
+>>>>>>> parent of 13ce105 (高度用CGFloat)
     [UIView animateWithDuration:0.25 animations:^{
         self.slideLine.frame = CGRectMake(w*index+0.2*w, 40, 0.6*w, 4);
     }];
@@ -103,7 +123,11 @@
 #pragma mark- getter & setter
 - (UIScrollView *)mainScrollView{
     if (_mainScrollView == nil) {
+<<<<<<< HEAD
         _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight-kTabbarHeight-kSafeAreaHeight)];
+=======
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight + kStatusBarHeight + 44, kScreenWidth, kScreenHeight-kNavigationBarHeight-kStatusBarHeight-44-kTabbarHeight-kSafeAreaHeight)];
+>>>>>>> parent of 13ce105 (高度用CGFloat)
         _mainScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _mainScrollView.delegate = self;
         _mainScrollView.backgroundColor = [UIColor whiteColor];
@@ -116,6 +140,7 @@
 
 - (UIView *)slideBGView{
     if (_slideBGView == nil) {
+<<<<<<< HEAD
         _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kScreenWidth, 44)];
         _slideBGView.backgroundColor = [UIColor clearColor];
         
@@ -127,6 +152,19 @@
             [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [btn setTitle:[NSString stringWithFormat:@"vc-%i",i] forState:UIControlStateNormal];
+=======
+        _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight+kNavigationBarHeight, kScreenWidth, 44)];
+        _slideBGView.backgroundColor = [UIColor whiteColor];
+        
+        CGFloat w = kScreenWidth / self.childViewControllers.count;
+        for (int i = 0; i < self.childViewControllers.count; i++) {
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            btn.frame = CGRectMake(w * i, 0, w, 44);
+            btn.tag = i + 1;
+            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor grayColor] forState:UIControlStateSelected];
+            [btn setTitle:[NSString stringWithFormat:@"%i",i] forState:UIControlStateNormal];
+>>>>>>> parent of 13ce105 (高度用CGFloat)
             [btn addTarget:self action:@selector(clickFunBtn:) forControlEvents:UIControlEventTouchUpInside];
             [_slideBGView addSubview:btn];
         }
