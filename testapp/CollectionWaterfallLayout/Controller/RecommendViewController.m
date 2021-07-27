@@ -42,16 +42,16 @@ static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeader
     return self;
 }
 
-- (void)loadView {
+- (void)loadView
+{
     [super loadView];
     [self.view addSubview:self.collectionView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.navigationController.navigationBar.translucent = NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    _collectionView.pagingEnabled = YES;
+    
     
     [self setupDataList];
     [self setupRightButton];
@@ -72,7 +72,7 @@ static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeader
     NSInteger dataCount = 50;
     //NSInteger dataCount = arc4random() % 25 + 50;
     for(NSInteger i = 0; i < dataCount; ++i) {
-        CGFloat rowHeight = 300;
+        NSInteger rowHeight = 300;
         //NSInteger rowHeight = arc4random() % 100 + 300;
         [_dataList addObject:@(rowHeight)];
     }
@@ -176,7 +176,7 @@ static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeader
 - (CGFloat)collectionViewLayout:(CollectionWaterfallLayout *)layout heightForSupplementaryViewAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 0 && indexPath.row == 0){
-        return 0;
+        return 100;
     }
     return 0;
 }

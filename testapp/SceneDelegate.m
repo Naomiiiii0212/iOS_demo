@@ -23,10 +23,9 @@
 	self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
 	self.window.frame = windowScene.coordinateSpace.bounds;
 
-	MainTabBarViewController *mainViewController = [[MainTabBarViewController alloc] init];
-	self.window.rootViewController = mainViewController;
-	[self.window makeKeyAndVisible];
-
+    MainTabBarViewController *mainVC = [[MainTabBarViewController alloc] init];
+    self.window.rootViewController = mainVC;
+    [self.window makeKeyAndVisible];
 }
 
 - (void)sceneDidDisconnect:(UIScene *)scene {

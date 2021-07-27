@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C78DDC826AE646A00704D45 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C78DDC726AE646A00704D45 /* MainTabBarViewController.m */; };
 		CBBECA209EB0016A034FB424 /* libPods-testapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DAA48F0B15A97E1ED59FFD /* libPods-testapp.a */; };
 		DA042C3A2695505D00C4160E /* DeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA042C392695505D00C4160E /* DeleteCellView.m */; };
 		DA238CA326A55C5D0015B994 /* VideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA238CA226A55C5D0015B994 /* VideoPlayer.m */; };
 		DA26F9AA26A11E0400D40434 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26F9A926A11E0400D40434 /* MainViewController.m */; };
 		DA26F9AC26A1308500D40434 /* btn_home_add_common.png in Resources */ = {isa = PBXBuildFile; fileRef = DA26F9AB26A1308500D40434 /* btn_home_add_common.png */; };
-		DA40786F26AED6E600ED1C52 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA40786E26AED6E600ED1C52 /* MainTabBarViewController.m */; };
 		DA672C5C269D89C500324E7E /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA672C5B269D89C500324E7E /* VideoCoverView.m */; };
 		DA672C5E269D931400324E7E /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA672C5D269D931400324E7E /* icon.bundle */; };
 		DA76E02126A919CF00F759DE /* CollectionWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DA76E02026A919CF00F759DE /* CollectionWaterfallLayout.m */; };
@@ -30,12 +30,15 @@
 		DA8797612692A7280062DD3D /* NormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8797602692A7280062DD3D /* NormalTableViewCell.m */; };
 		DA8797642692F4A70062DD3D /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8797632692F4A70062DD3D /* img.png */; };
 		DA87976726931AE30062DD3D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87976626931AE30062DD3D /* DetailViewController.m */; };
+		DA90A0CB26A6BCA80046C09B /* HoverViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DA90A0CA26A6BCA80046C09B /* HoverViewFlowLayout.m */; };
 		DAD517A72696ADDB007DD3C5 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD517A62696ADDB007DD3C5 /* ListItem.m */; };
 		DAFD55F52695BDCC00FDF4B0 /* ListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD55F42695BDCC00FDF4B0 /* ListLoader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		30AEE5933867DE6037F91019 /* Pods-testapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testapp.release.xcconfig"; path = "Target Support Files/Pods-testapp/Pods-testapp.release.xcconfig"; sourceTree = "<group>"; };
+		7C78DDC626AE646A00704D45 /* MainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
+		7C78DDC726AE646A00704D45 /* MainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		8D50AF12F2B7996F345CA0A5 /* Pods-testapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testapp.debug.xcconfig"; path = "Target Support Files/Pods-testapp/Pods-testapp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA042C382695505D00C4160E /* DeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteCellView.h; sourceTree = "<group>"; };
 		DA042C392695505D00C4160E /* DeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteCellView.m; sourceTree = "<group>"; };
@@ -44,8 +47,6 @@
 		DA26F9A826A11E0400D40434 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		DA26F9A926A11E0400D40434 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		DA26F9AB26A1308500D40434 /* btn_home_add_common.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_home_add_common.png; sourceTree = "<group>"; };
-		DA40786D26AED6E600ED1C52 /* MainTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
-		DA40786E26AED6E600ED1C52 /* MainTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		DA672C5A269D89C500324E7E /* VideoCoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCoverView.h; sourceTree = "<group>"; };
 		DA672C5B269D89C500324E7E /* VideoCoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCoverView.m; sourceTree = "<group>"; };
 		DA672C5D269D931400324E7E /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
@@ -75,6 +76,8 @@
 		DA8797632692F4A70062DD3D /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		DA87976526931AE30062DD3D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		DA87976626931AE30062DD3D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		DA90A0C926A6BCA80046C09B /* HoverViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HoverViewFlowLayout.h; sourceTree = "<group>"; };
+		DA90A0CA26A6BCA80046C09B /* HoverViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HoverViewFlowLayout.m; sourceTree = "<group>"; };
 		DAD517A52696ADDB007DD3C5 /* ListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
 		DAD517A62696ADDB007DD3C5 /* ListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
 		DAFD55F32695BDCC00FDF4B0 /* ListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListLoader.h; sourceTree = "<group>"; };
@@ -183,10 +186,10 @@
 				DA80F8F2268AFF3F004773B8 /* AppDelegate.m */,
 				DA80F8F4268AFF3F004773B8 /* SceneDelegate.h */,
 				DA80F8F5268AFF3F004773B8 /* SceneDelegate.m */,
+				7C78DDC626AE646A00704D45 /* MainTabBarViewController.h */,
+				7C78DDC726AE646A00704D45 /* MainTabBarViewController.m */,
 				DA26F9A826A11E0400D40434 /* MainViewController.h */,
 				DA26F9A926A11E0400D40434 /* MainViewController.m */,
-				DA40786D26AED6E600ED1C52 /* MainTabBarViewController.h */,
-				DA40786E26AED6E600ED1C52 /* MainTabBarViewController.m */,
 				DA80F8FA268AFF3F004773B8 /* Main.storyboard */,
 				DA80F8FD268AFF40004773B8 /* Assets.xcassets */,
 				DA26F9AB26A1308500D40434 /* btn_home_add_common.png */,
@@ -194,6 +197,8 @@
 				DA80F902268AFF40004773B8 /* Info.plist */,
 				DA80F903268AFF40004773B8 /* main.m */,
 				DA672C5D269D931400324E7E /* icon.bundle */,
+				DA90A0C926A6BCA80046C09B /* HoverViewFlowLayout.h */,
+				DA90A0CA26A6BCA80046C09B /* HoverViewFlowLayout.m */,
 			);
 			path = testapp;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				DAD517A72696ADDB007DD3C5 /* ListItem.m in Sources */,
 				DA042C3A2695505D00C4160E /* DeleteCellView.m in Sources */,
 				DA26F9AA26A11E0400D40434 /* MainViewController.m in Sources */,
+				DA90A0CB26A6BCA80046C09B /* HoverViewFlowLayout.m in Sources */,
 				DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */,
 				DA80F904268AFF40004773B8 /* main.m in Sources */,
 				DA76E02926A91A5700F759DE /* WFHeaderView.m in Sources */,
@@ -362,7 +368,7 @@
 				DA87975B268C75F30062DD3D /* videoViewController.m in Sources */,
 				DA672C5C269D89C500324E7E /* VideoCoverView.m in Sources */,
 				DA80F8F6268AFF3F004773B8 /* SceneDelegate.m in Sources */,
-				DA40786F26AED6E600ED1C52 /* MainTabBarViewController.m in Sources */,
+				7C78DDC826AE646A00704D45 /* MainTabBarViewController.m in Sources */,
 				DA87975E268DBDA50062DD3D /* RecommendViewController.m in Sources */,
 				DA8797612692A7280062DD3D /* NormalTableViewCell.m in Sources */,
 			);
