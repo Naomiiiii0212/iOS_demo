@@ -9,12 +9,12 @@
 #import "videoViewController.h"
 #import "RecommendViewController.h"
 
-#define kScreenWidth [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
-#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
-#define kNavigationBarHeight 44.0
-#define kTabbarHeight 49.5
-#define kSafeAreaHeight [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
+#define StatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define NavigationBarHeight 44.0
+#define TabbarHeight 49.5
+#define SafeAreaHeight [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom
 
 @interface MainViewController ()<UIScrollViewDelegate>
 
@@ -44,7 +44,7 @@
     [self.view addSubview:self.slideBGView];
     
     [self.view addSubview:self.mainScrollView];
-    self.mainScrollView.contentSize = CGSizeMake(kScreenWidth * self.childViewControllers.count, 0);
+    self.mainScrollView.contentSize = CGSizeMake(ScreenWidth * self.childViewControllers.count, 0);
 }
 
 #pragma mark - 添加子控制器
@@ -62,13 +62,13 @@
     if (index < 0) {
         return;
     }
-    [self.mainScrollView setContentOffset:CGPointMake(kScreenWidth * index, 0) animated:YES];
+    [self.mainScrollView setContentOffset:CGPointMake(ScreenWidth * index, 0) animated:YES];
     [self showViewWithIndex:index];
 }
 
 #pragma mark - UIScrollViewDelegate ScrollView代理
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
+    NSInteger index = scrollView.contentOffset.x / ScreenWidth;
     [self showViewWithIndex:index];
 }
 
@@ -87,10 +87,10 @@
     }
     
     UIViewController *vc = self.childViewControllers[index];
-    vc.view.frame = CGRectMake(kScreenWidth * index, 0, self.mainScrollView.bounds.size.width, self.mainScrollView.bounds.size.height);
+    vc.view.frame = CGRectMake(ScreenWidth * index, 0, self.mainScrollView.bounds.size.width, self.mainScrollView.bounds.size.height);
     [self.mainScrollView addSubview:vc.view];
     
-    CGFloat w = kScreenWidth / self.childViewControllers.count;
+    CGFloat w = ScreenWidth / self.childViewControllers.count;
     [UIView animateWithDuration:0.25 animations:^{
         self.slideLine.frame = CGRectMake(w * index + 0.2 * w, 40, 0.6 * w, 4);
     }];
@@ -103,7 +103,7 @@
 #pragma mark- getter & setter
 - (UIScrollView *)mainScrollView{
     if (_mainScrollView == nil) {
-        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight + kStatusBarHeight + 44, kScreenWidth, kScreenHeight-kNavigationBarHeight-kStatusBarHeight-44-kTabbarHeight-kSafeAreaHeight)];
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, NavigationBarHeight + StatusBarHeight + 44, ScreenWidth, ScreenHeight-NavigationBarHeight-StatusBarHeight-44-TabbarHeight-SafeAreaHeight)];
         _mainScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _mainScrollView.delegate = self;
         _mainScrollView.backgroundColor = [UIColor whiteColor];
@@ -116,10 +116,10 @@
 
 - (UIView *)slideBGView{
     if (_slideBGView == nil) {
-        _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight+kNavigationBarHeight, kScreenWidth, 44)];
+        _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, StatusBarHeight+NavigationBarHeight, ScreenWidth, 44)];
         _slideBGView.backgroundColor = [UIColor whiteColor];
         
-        CGFloat w = kScreenWidth / self.childViewControllers.count;
+        CGFloat w = ScreenWidth / self.childViewControllers.count;
         for (int i = 0; i < self.childViewControllers.count; i++) {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             btn.frame = CGRectMake(w * i, 0, w, 44);
