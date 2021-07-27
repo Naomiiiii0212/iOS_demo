@@ -49,7 +49,7 @@ static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeader
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
 	//UICollectionViewCell *collectcell = [[UICollectionViewCell alloc] init];
-    self.navigationController.navigationBar.translucent = NO;
+    //self.navigationController.navigationBar.translucent = NO;
 	self.view.backgroundColor = [UIColor whiteColor];
 
 	//系统提供默认的流式布局
