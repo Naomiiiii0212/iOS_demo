@@ -21,14 +21,15 @@
     [super viewDidLoad];
     
     [self setupChildViewControllers];
+    
 }
 
 #pragma mark - 初始化子控制器
 - (void)setupChildViewControllers{
     MainViewController *vc1 = [[MainViewController alloc] init];
-    UINavigationController *naVC1 = [[UINavigationController alloc] initWithRootViewController:vc1];
-    naVC1.tabBarItem.title = @"首页";
-    [self addChildViewController:naVC1];
+//    UINavigationController *naVC1 = [[UINavigationController alloc] initWithRootViewController:vc1];
+    vc1.tabBarItem.title = @"首页";
+    [self addChildViewController:vc1];
     
     ViewController *vc2 = [[ViewController alloc] init];
     UINavigationController *naVC2 = [[UINavigationController alloc] initWithRootViewController:vc2];

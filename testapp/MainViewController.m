@@ -41,10 +41,10 @@
 - (void)setupView{
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:self.slideBGView];
-    
     [self.view addSubview:self.mainScrollView];
     self.mainScrollView.contentSize = CGSizeMake(kScreenWidth*self.childViewControllers.count, 0);
+    
+    [self.view addSubview:self.slideBGView];
 }
 
 #pragma mark - 添加子控制器
@@ -103,7 +103,7 @@
 #pragma mark- getter & setter
 - (UIScrollView *)mainScrollView{
     if (_mainScrollView == nil) {
-        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kNavigationBarHeight+kStatusBarHeight+44, kScreenWidth, kScreenHeight-kNavigationBarHeight-kStatusBarHeight-44-kTabbarHeight-kSafeAreaHeight)];
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight-kTabbarHeight-kSafeAreaHeight)];
         _mainScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _mainScrollView.delegate = self;
         _mainScrollView.backgroundColor = [UIColor whiteColor];
@@ -116,21 +116,21 @@
 
 - (UIView *)slideBGView{
     if (_slideBGView == nil) {
-        _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight+kNavigationBarHeight, kScreenWidth, 44)];
-        _slideBGView.backgroundColor = [UIColor whiteColor];
+        _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kScreenWidth, 44)];
+        _slideBGView.backgroundColor = [UIColor clearColor];
         
         CGFloat w = kScreenWidth/self.childViewControllers.count;
         for (int i = 0; i<self.childViewControllers.count; i++) {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.frame = CGRectMake(w*i, 0, w, 44);
             btn.tag = i+1;
-            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+            [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
             [btn setTitle:[NSString stringWithFormat:@"vc-%i",i] forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(clickFunBtn:) forControlEvents:UIControlEventTouchUpInside];
             [_slideBGView addSubview:btn];
         }
-        self.slideLine.tag = self.childViewControllers.count;
+        self.slideLine.tag = self.childViewControllers.count+1;
         [_slideBGView addSubview:self.slideLine];
     }
     return _slideBGView;
@@ -139,7 +139,7 @@
 - (UIView *)slideLine{
     if (_slideLine == nil) {
         _slideLine = [[UIView alloc] init];
-        _slideLine.backgroundColor = [UIColor redColor];
+        _slideLine.backgroundColor = [UIColor whiteColor];
     }
     return _slideLine;
 }
