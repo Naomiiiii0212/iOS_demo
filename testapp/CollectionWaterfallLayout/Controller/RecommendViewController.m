@@ -52,6 +52,7 @@ static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeader
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    _collectionView.pagingEnabled = YES;
     
     [self setupDataList];
     [self setupRightButton];
@@ -176,7 +177,7 @@ static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeader
 - (CGFloat)collectionViewLayout:(CollectionWaterfallLayout *)layout heightForSupplementaryViewAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 0 && indexPath.row == 0){
-        return 100;
+        return 0;
     }
     return 0;
 }

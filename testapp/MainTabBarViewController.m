@@ -27,7 +27,7 @@
 #pragma mark - 初始化子控制器
 - (void)setupChildViewControllers{
     MainViewController *vc1 = [[MainViewController alloc] init];
-//    UINavigationController *naVC1 = [[UINavigationController alloc] initWithRootViewController:vc1];
+    //UINavigationController *naVC1 = [[UINavigationController alloc] initWithRootViewController:vc1];
     vc1.tabBarItem.title = @"首页";
     [self addChildViewController:vc1];
     
@@ -37,9 +37,9 @@
     [self addChildViewController:naVC2];
     
     UIViewController *vc3 = [[UIViewController alloc] init];
-    UINavigationController *naVC3 = [[UINavigationController alloc] initWithRootViewController:vc3];
-    naVC3.tabBarItem.image = [[UIImage imageNamed:@"icon.bundle/camera.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    [self addChildViewController:naVC3];
+    //UINavigationController *naVC3 = [[UINavigationController alloc] initWithRootViewController:vc3];
+    vc3.tabBarItem.image = [[UIImage imageNamed:@"icon.bundle/camera.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [self addChildViewController:vc3];
     
     RecommendViewController *vc4 = [[RecommendViewController alloc] init];
     UINavigationController *naVC4 = [[UINavigationController alloc] initWithRootViewController:vc4];
@@ -47,9 +47,9 @@
     [self addChildViewController:naVC4];
     
     UIViewController *vc5 = [[UIViewController alloc] init];
-    UINavigationController *naVC5 = [[UINavigationController alloc] initWithRootViewController:vc5];
-    naVC5.tabBarItem.title = @"我";
-    [self addChildViewController:naVC5];
+    //UINavigationController *naVC5 = [[UINavigationController alloc] initWithRootViewController:vc5];
+    vc5.tabBarItem.title = @"我";
+    [self addChildViewController:vc5];
 }
 
 @end
