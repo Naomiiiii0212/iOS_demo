@@ -34,7 +34,7 @@
     
 	[self setupView];
     
-    [self showDefaultViewWithIndex:2];
+    [self showDefaultViewWithIndex:0];
 }
 
 #pragma mark - 初始化页面
@@ -42,7 +42,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.mainScrollView];
-    self.mainScrollView.contentSize = CGSizeMake(ScreenWidth*self.childViewControllers.count, 0);
+    self.mainScrollView.contentSize = CGSizeMake(ScreenWidth*self.childViewControllers.count, ScreenHeight - TabbarHeight - SafeAreaHeight);
     
     [self.view addSubview:self.slideBGView];
 }
@@ -130,18 +130,18 @@
             [btn addTarget:self action:@selector(clickFunBtn:) forControlEvents:UIControlEventTouchUpInside];
             [_slideBGView addSubview:btn];
         }
-        self.slideLine.tag = self.childViewControllers.count+1;
-        [_slideBGView addSubview:self.slideLine];
+//        self.slideLine.tag = self.childViewControllers.count+1;
+//        [_slideBGView addSubview:self.slideLine];
     }
     return _slideBGView;
 }
 
-- (UIView *)slideLine{
-    if (_slideLine == nil) {
-        _slideLine = [[UIView alloc] init];
-        _slideLine.backgroundColor = [UIColor whiteColor];
-    }
-    return _slideLine;
-}
+//- (UIView *)slideLine{
+//    if (_slideLine == nil) {
+//        _slideLine = [[UIView alloc] init];
+//        _slideLine.backgroundColor = [UIColor whiteColor];
+//    }
+//    return _slideLine;
+//}
 
 @end

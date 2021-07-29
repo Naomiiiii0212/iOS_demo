@@ -50,7 +50,7 @@
 	 }];
 
 	_playLayer = [AVPlayerLayer playerLayerWithPlayer:_avPlayer];
-	_playLayer.frame = attachView.bounds;
+	_playLayer.frame = attachView.frame;
 	[attachView.layer addSublayer:_playLayer];
 	
     // 中心化管理，监听视频播放结束

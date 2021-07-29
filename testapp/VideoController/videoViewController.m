@@ -9,12 +9,12 @@
 #import "VideoCoverView.h"
 #import "RecommendViewController.h"
 
-#define StatusBarHeight ([UIApplication sharedApplication].statusBarFrame.size.height)
-#define NavigationBarHeight (self.navigationController.navigationBar.frame.size.height)
-#define TabBarHeight (self.tabBarController.tabBar.frame.size.height)
-
-#define ScreenWidth ([[UIScreen mainScreen] bounds].size.width)
-#define ScreenHeight ([[UIScreen mainScreen] bounds].size.height)
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavigationBarHeight 44.0
+#define kTabbarHeight 49.5
+#define kSafeAreaHeight [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom
 
 @interface videoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -32,6 +32,7 @@
 	return self;
 }
 
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
@@ -41,18 +42,18 @@
 
 	//系统提供默认的流式布局
 	UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-	flowLayout.minimumLineSpacing = 10;
-	flowLayout.minimumInteritemSpacing = 10;
-	// 每个cell视频源占满整个屏幕，上下滑动切换cell，因此每滑动两个cell就会进行cell复用
-	 flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+	flowLayout.minimumLineSpacing = 0;
+//	// 每个cell视频源占满整个屏幕，上下滑动切换cell，因此每滑动两个cell就会进行cell复用
+//	 flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 
 	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
+	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabbarHeight-kSafeAreaHeight) collectionViewLayout:flowLayout];
 	collectionView.dataSource = self;
 	collectionView.delegate = self;
 	// 必须先注册 Cell 类型⽤于重用
 	// VideoCoverView替换
 	[collectionView registerClass:[VideoCoverView class] forCellWithReuseIdentifier:@"VideoCoverView"];
-	
+    collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     // 视频翻页
 	collectionView.pagingEnabled = YES;
     
@@ -63,6 +64,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 	return 30;
 }
+
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,8 +77,8 @@
 	return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(kScreenWidth, kScreenHeight-kTabbarHeight-kSafeAreaHeight);
 }
 
 

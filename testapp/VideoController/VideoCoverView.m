@@ -22,7 +22,7 @@
 	self = [super initWithFrame:frame];
 	if (self) {
 		[self addSubview:({
-			_coverView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+			_coverView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width , frame.size.height)];
 			_coverView;
 		})];
 

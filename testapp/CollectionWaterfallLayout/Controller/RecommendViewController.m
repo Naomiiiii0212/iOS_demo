@@ -52,7 +52,7 @@ static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeader
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _collectionView.pagingEnabled = YES;
+    //_collectionView.pagingEnabled = YES;
     
     [self setupDataList];
     [self setupRightButton];
@@ -73,7 +73,7 @@ static NSString *const kCollectionViewHeaderReusableID = @"kCollectionViewHeader
     NSInteger dataCount = 50;
     //NSInteger dataCount = arc4random() % 25 + 50;
     for(NSInteger i = 0; i < dataCount; ++i) {
-        NSInteger rowHeight = 300;
+        CGFloat rowHeight = 300;
         //NSInteger rowHeight = arc4random() % 100 + 300;
         [_dataList addObject:@(rowHeight)];
     }

@@ -132,7 +132,7 @@
 //	// 主队列
 //	dispatch_queue_main_t mainQueue = dispatch_get_main_queue();
 //
-//	//非主队列实现下载图片逻辑，主队列加载ui展示
+//	//非主队列实现下载图片逻辑，主队列加载ui展示，异步执行
 //	dispatch_async(downloadQueue, ^{
 //		UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:item.picUrl]]];
 //		dispatch_async(mainQueue, ^{
