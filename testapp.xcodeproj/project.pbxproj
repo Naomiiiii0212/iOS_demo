@@ -30,6 +30,7 @@
 		DA8797612692A7280062DD3D /* NormalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8797602692A7280062DD3D /* NormalTableViewCell.m */; };
 		DA8797642692F4A70062DD3D /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8797632692F4A70062DD3D /* img.png */; };
 		DA87976726931AE30062DD3D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87976626931AE30062DD3D /* DetailViewController.m */; };
+		DAB4B2EE26B3FE26005A9E5C /* meViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DAB4B2ED26B3FE26005A9E5C /* meViewController.m */; };
 		DAD517A72696ADDB007DD3C5 /* ListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD517A62696ADDB007DD3C5 /* ListItem.m */; };
 		DAFD55F52695BDCC00FDF4B0 /* ListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFD55F42695BDCC00FDF4B0 /* ListLoader.m */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,8 @@
 		DA8797632692F4A70062DD3D /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		DA87976526931AE30062DD3D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		DA87976626931AE30062DD3D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		DAB4B2EC26B3FE26005A9E5C /* meViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = meViewController.h; sourceTree = "<group>"; };
+		DAB4B2ED26B3FE26005A9E5C /* meViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = meViewController.m; sourceTree = "<group>"; };
 		DAD517A52696ADDB007DD3C5 /* ListItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListItem.h; sourceTree = "<group>"; };
 		DAD517A62696ADDB007DD3C5 /* ListItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListItem.m; sourceTree = "<group>"; };
 		DAFD55F32695BDCC00FDF4B0 /* ListLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListLoader.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				DA80F902268AFF40004773B8 /* Info.plist */,
 				DA80F903268AFF40004773B8 /* main.m */,
 				DA672C5D269D931400324E7E /* icon.bundle */,
+				DAB4B2EC26B3FE26005A9E5C /* meViewController.h */,
+				DAB4B2ED26B3FE26005A9E5C /* meViewController.m */,
 			);
 			path = testapp;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 				DAD517A72696ADDB007DD3C5 /* ListItem.m in Sources */,
 				DA042C3A2695505D00C4160E /* DeleteCellView.m in Sources */,
 				DA26F9AA26A11E0400D40434 /* MainViewController.m in Sources */,
+				DAB4B2EE26B3FE26005A9E5C /* meViewController.m in Sources */,
 				DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */,
 				DA80F904268AFF40004773B8 /* main.m in Sources */,
 				DA76E02926A91A5700F759DE /* WFHeaderView.m in Sources */,
