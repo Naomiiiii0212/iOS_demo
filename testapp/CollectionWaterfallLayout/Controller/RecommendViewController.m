@@ -58,7 +58,7 @@
     _dataList = [NSMutableArray array];
     NSInteger dataCount = 50;
     // NSInteger dataCount = arc4random() % 25 + 50;
-    for(NSInteger i = 0; i < dataCount; ++i) {
+    for(int i = 0; i < dataCount; ++i) {
         CGFloat rowHeight = 300;
         // NSInteger rowHeight = arc4random() % 100 + 300;
         [_dataList addObject: @(rowHeight)];

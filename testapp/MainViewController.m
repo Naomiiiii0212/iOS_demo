@@ -125,14 +125,15 @@
         _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kScreenWidth, 44)];
         _slideBGView.backgroundColor = [UIColor clearColor];
         
-        CGFloat w = kScreenWidth/self.childViewControllers.count;
-        for (int i = 0; i<self.childViewControllers.count; i++) {
+        CGFloat w = kScreenWidth / self.childViewControllers.count;
+        NSArray *btnTitle  = @[@"推荐", @"发现", @"同城"];
+        for (int i = 0; i < self.childViewControllers.count; ++i) {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.frame = CGRectMake(w*i, 0, w, 44);
-            btn.tag = i+1;
+            btn.frame = CGRectMake(w * i, 0, w, 44);
+            btn.tag = i + 1;
             [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-            [btn setTitle:[NSString stringWithFormat:@"%i",i] forState:UIControlStateNormal];
+            [btn setTitle:[btnTitle objectAtIndex:i] forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(clickFunBtn:) forControlEvents:UIControlEventTouchUpInside];
             [_slideBGView addSubview:btn];
         }

@@ -21,7 +21,6 @@
     [super viewDidLoad];
     
     [self setupChildViewControllers];
-    
 }
 
 #pragma mark - 初始化子控制器
