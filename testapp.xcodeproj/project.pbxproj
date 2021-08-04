@@ -16,8 +16,6 @@
 		DA672C5C269D89C500324E7E /* VideoCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA672C5B269D89C500324E7E /* VideoCoverView.m */; };
 		DA672C5E269D931400324E7E /* icon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA672C5D269D931400324E7E /* icon.bundle */; };
 		DA76E02126A919CF00F759DE /* CollectionWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DA76E02026A919CF00F759DE /* CollectionWaterfallLayout.m */; };
-		DA76E02926A91A5700F759DE /* WFHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA76E02526A91A5700F759DE /* WFHeaderView.m */; };
-		DA76E02B26A91B0900F759DE /* WFHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA76E02A26A91B0900F759DE /* WFHeaderView.xib */; };
 		DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80F8F2268AFF3F004773B8 /* AppDelegate.m */; };
 		DA80F8F6268AFF3F004773B8 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80F8F5268AFF3F004773B8 /* SceneDelegate.m */; };
 		DA80F8F9268AFF3F004773B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA80F8F8268AFF3F004773B8 /* ViewController.m */; };
@@ -52,9 +50,6 @@
 		DA672C5D269D931400324E7E /* icon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = icon.bundle; sourceTree = "<group>"; };
 		DA76E01F26A919CF00F759DE /* CollectionWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionWaterfallLayout.h; sourceTree = "<group>"; };
 		DA76E02026A919CF00F759DE /* CollectionWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionWaterfallLayout.m; sourceTree = "<group>"; };
-		DA76E02526A91A5700F759DE /* WFHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WFHeaderView.m; sourceTree = "<group>"; };
-		DA76E02626A91A5700F759DE /* WFHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WFHeaderView.h; sourceTree = "<group>"; };
-		DA76E02A26A91B0900F759DE /* WFHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WFHeaderView.xib; sourceTree = "<group>"; };
 		DA80F8EE268AFF3F004773B8 /* testapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA80F8F1268AFF3F004773B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA80F8F2268AFF3F004773B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -150,9 +145,6 @@
 			children = (
 				DA87975C268DBDA50062DD3D /* RecommendViewController.h */,
 				DA87975D268DBDA50062DD3D /* RecommendViewController.m */,
-				DA76E02626A91A5700F759DE /* WFHeaderView.h */,
-				DA76E02526A91A5700F759DE /* WFHeaderView.m */,
-				DA76E02A26A91B0900F759DE /* WFHeaderView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,7 +306,6 @@
 				DA26F9AC26A1308500D40434 /* btn_home_add_common.png in Resources */,
 				DA672C5E269D931400324E7E /* icon.bundle in Resources */,
 				DA80F901268AFF40004773B8 /* LaunchScreen.storyboard in Resources */,
-				DA76E02B26A91B0900F759DE /* WFHeaderView.xib in Resources */,
 				DA80F8FE268AFF40004773B8 /* Assets.xcassets in Resources */,
 				DA80F8FC268AFF3F004773B8 /* Main.storyboard in Resources */,
 				DA8797642692F4A70062DD3D /* img.png in Resources */,
@@ -362,7 +353,6 @@
 				DAB4B2EE26B3FE26005A9E5C /* meViewController.m in Sources */,
 				DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */,
 				DA80F904268AFF40004773B8 /* main.m in Sources */,
-				DA76E02926A91A5700F759DE /* WFHeaderView.m in Sources */,
 				DA87976726931AE30062DD3D /* DetailViewController.m in Sources */,
 				DA238CA326A55C5D0015B994 /* VideoPlayer.m in Sources */,
 				DA87975B268C75F30062DD3D /* videoViewController.m in Sources */,
