@@ -41,21 +41,20 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
 - (void)prepareLayout {
     [super prepareLayout];
     
-    //初始化数组
+    // 初始化数组
     self.columnHeights = [NSMutableArray array];
-    for(NSInteger column=0; column<_columns; column++){
+    for(NSInteger column = 0; column < _columns; column++) {
         self.columnHeights[column] = @(0);
     }
     
-    
     self.attributesArray = [NSMutableArray array];
     NSInteger numSections = [self.collectionView numberOfSections];
-    for(NSInteger section=0; section<numSections; section++){
+    for(NSInteger section = 0; section < numSections; ++section){
         NSInteger numItems = [self.collectionView numberOfItemsInSection:0];
-        for(NSInteger item=0; item<numItems; item++){
-            //遍历每一项
+        for(NSInteger item = 0; item < numItems; ++item){
+            // 遍历每一项
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
-            //计算LayoutAttributes
+            // 计算LayoutAttributes
             UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
             
             [self.attributesArray addObject:attributes];
@@ -67,12 +66,11 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
  *  2、
  *  需要返回所有内容的滚动长度
  */
-- (CGSize)collectionViewContentSize
-{
+- (CGSize)collectionViewContentSize {
     NSInteger mostColumn = [self columnOfMostHeight];
     //所有列当中最大的高度
     CGFloat mostHeight = [self.columnHeights[mostColumn] floatValue];
-    return CGSizeMake(self.collectionView.bounds.size.width, mostHeight+_insets.top+_insets.bottom);
+    return CGSizeMake(self.collectionView.bounds.size.width, mostHeight + _insets.top +_insets. bottom);
 }
 
 /**
@@ -194,16 +192,14 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
 /**
  *  找到高度最大的那一列的下标
  */
-- (NSInteger)columnOfMostHeight
-{
+- (NSInteger)columnOfMostHeight {
     if(self.columnHeights.count == 0 || self.columnHeights.count == 1){
         return 0;
     }
     
     __block NSInteger mostIndex = 0;
     [self.columnHeights enumerateObjectsUsingBlock:^(NSNumber *number, NSUInteger idx, BOOL *stop) {
-        
-        if([number floatValue] > [self.columnHeights[mostIndex] floatValue]){
+        if([number floatValue] > [self.columnHeights[mostIndex] floatValue]) {
             mostIndex = idx;
         }
     }];
