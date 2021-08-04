@@ -32,7 +32,6 @@
     self = [super init];
     if (self) {
         self.tabBarItem.title = @"推荐";
-
     }
     return self;
 }
@@ -78,6 +77,7 @@
         _waterfallLayout.delegate = self;
         _waterfallLayout.columns = 2;
         _waterfallLayout.columnSpacing = 10;
+        _waterfallLayout.itemSpacing = 10;
         _waterfallLayout.insets = UIEdgeInsetsMake(10, 10, 10, 10);
         
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kStatusBarHeight-kNavigationBarHeight) collectionViewLayout:_waterfallLayout];

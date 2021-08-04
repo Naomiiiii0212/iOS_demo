@@ -11,25 +11,17 @@ NSString *const kSupplementaryViewKindHeader = @"Header";
 CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
 
 @interface CollectionWaterfallLayout()
-
-/** 保存所有Item的LayoutAttributes */
+// 保存所有Item的LayoutAttributes
 @property (nonatomic, strong) NSMutableArray<UICollectionViewLayoutAttributes *> *attributesArray;
-/** 保存所有列的当前高度 */
+// 保存所有列的当前高度
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *columnHeights;
 
 @end
 
-
 @implementation CollectionWaterfallLayout
 
-- (void)dealloc
-{
-    NSLog(@"%s", __func__);
-}
-
-- (instancetype)init
-{
-    if(self = [super init]) {
+- (instancetype)init {
+    if (self = [super init]) {
         _columns = 1;
         _columnSpacing = 10;
         _itemSpacing = 10;
@@ -44,11 +36,10 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
  *  collectionView初次显示或者调用invalidateLayout方法后会调用此方法
  *  触发此方法会重新计算布局，每次布局也是从此方法开始
  *  在此方法中需要做的事情是准备后续计算所需的东西，以得出后面的ContentSize和每个item的layoutAttributes
+ *  UICollectionViewLayout (UISubclassingHooks) 这个扩展类中，都是用来布局UIcollectionView子视图的
  */
-- (void)prepareLayout
-{
+- (void)prepareLayout {
     [super prepareLayout];
-    
     
     //初始化数组
     self.columnHeights = [NSMutableArray array];
