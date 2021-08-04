@@ -115,9 +115,8 @@
     return cellHeight;
 }
 
-- (CGFloat)collectionViewLayout:(CollectionWaterfallLayout *)layout heightForSupplementaryViewAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.section == 0 && indexPath.row == 0){
+- (CGFloat)collectionViewLayout:(CollectionWaterfallLayout *)layout heightForSupplementaryViewAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row == 0) {
         return 0;
     }
     return 0;
