@@ -104,7 +104,7 @@
 #pragma mark- getter & setter
 - (UIScrollView *)mainScrollView{
     if (_mainScrollView == nil) {
-        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, kScreenWidth, ScreenHeight-kTabbarHeight-kSafeAreaHeight)];
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight-kTabbarHeight-kSafeAreaHeight)];
         _mainScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _mainScrollView.delegate = self;
         _mainScrollView.backgroundColor = [UIColor whiteColor];
@@ -120,7 +120,7 @@
         _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kScreenWidth, 44)];
         _slideBGView.backgroundColor = [UIColor clearColor];
         
-        CGFloat w = ScreenWidth/self.childViewControllers.count;
+        CGFloat w = kScreenWidth/self.childViewControllers.count;
         for (int i = 0; i<self.childViewControllers.count; i++) {
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.frame = CGRectMake(w*i, 0, w, 44);
