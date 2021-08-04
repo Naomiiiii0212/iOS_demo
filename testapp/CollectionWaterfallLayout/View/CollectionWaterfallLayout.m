@@ -49,9 +49,9 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
     
     self.attributesArray = [NSMutableArray array];
     NSInteger numSections = [self.collectionView numberOfSections];
-    for(NSInteger section = 0; section < numSections; ++section){
+    for(NSInteger section = 0; section < numSections; ++section) {
         NSInteger numItems = [self.collectionView numberOfItemsInSection:0];
-        for(NSInteger item = 0; item < numItems; ++item){
+        for(NSInteger item = 0; item < numItems; ++item) {
             // 遍历每一项
             NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
             // 计算LayoutAttributes
@@ -68,7 +68,7 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
  */
 - (CGSize)collectionViewContentSize {
     NSInteger mostColumn = [self columnOfMostHeight];
-    //所有列当中最大的高度
+    // 所有列当中最大的高度
     CGFloat mostHeight = [self.columnHeights[mostColumn] floatValue];
     return CGSizeMake(self.collectionView.bounds.size.width, mostHeight + _insets.top +_insets. bottom);
 }
@@ -78,28 +78,28 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
  *  当CollectionView开始刷新后，会调用此方法并传递rect参数（即当前可视区域）
  *  我们需要利用rect参数判断出在当前可视区域中有哪几个indexPath会被显示（无视rect而全部计算将会带来不好的性能）
  *  最后计算相关indexPath的layoutAttributes，加入数组中并返回
+ *  计算rect内相应的布局，并返回一个装有UICollectionViewLayoutAttributes的数组，Attributes
+ *  跟所有Item一一对应，UICollectionView就是根据这个Attributes来对Item进行布局，并当新的Rect区域滚动进入屏幕时再次请求此方法。
  */
-- (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect
-{
+- (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSMutableArray *attributesArray = self.attributesArray;
     NSArray<NSIndexPath *> *indexPaths;
-    //1、计算rect中出现的items
+    // 1、计算rect中出现的items
     indexPaths = [self indexPathForItemsInRect:rect];
-    for(NSIndexPath *indexPath in indexPaths){
-        //计算对应的LayoutAttributes
+    for (NSIndexPath *indexPath in indexPaths) {
+        // 计算对应的LayoutAttributes
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
         [attributesArray addObject:attributes];
     }
     
-    //2、计算rect中出现的SupplementaryViews
-    //这里只计算了kSupplementaryViewKindHeader
+    // 2、计算rect中出现的SupplementaryViews
+    // 这里只计算了kSupplementaryViewKindHeader
     indexPaths = [self indexPathForSupplementaryViewsOfKind:kSupplementaryViewKindHeader InRect:rect];
-    for(NSIndexPath *indexPath in indexPaths){
-        //计算对应的LayoutAttributes
+    for (NSIndexPath *indexPath in indexPaths) {
+        // 计算对应的LayoutAttributes
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForSupplementaryViewOfKind:kSupplementaryViewKindHeader atIndexPath:indexPath];
         [attributesArray addObject:attributes];
     }
-    
     return attributesArray;
 }
 
@@ -121,25 +121,25 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-    //外部返回Item高度
+    // 外部返回Item高度
     CGFloat itemHeight = [self.delegate collectionViewLayout:self heightForItemAtIndexPath:indexPath];
     
-    //headerView高度
+    // headerView高度
     CGFloat headerHeight = [self.delegate collectionViewLayout:self heightForSupplementaryViewAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
     
-    //找出所有列中高度最小的
+    // 找出所有列中高度最小的
     NSInteger columnIndex = [self columnOfLessHeight];
     CGFloat lessHeight = [self.columnHeights[columnIndex] floatValue];
     
-    //计算LayoutAttributes
-    CGFloat width = (self.collectionView.bounds.size.width-(_insets.left+_insets.right)-_columnSpacing*(_columns-1)) / _columns;
+    // 计算LayoutAttributes
+    CGFloat width = (self.collectionView.bounds.size.width - (_insets.left+_insets.right) - _columnSpacing * (_columns - 1)) / _columns;
     CGFloat height = itemHeight;
-    CGFloat x = _insets.left+(width+_columnSpacing)*columnIndex;
-    CGFloat y = lessHeight==0 ? headerHeight+_insets.top : lessHeight+_itemSpacing;
+    CGFloat x = _insets.left + (width + _columnSpacing) * columnIndex;
+    CGFloat y = lessHeight == 0 ? headerHeight+_insets.top : lessHeight+_itemSpacing;
     attributes.frame = CGRectMake(x, y, width, height);
     
-    //更新列高度
-    self.columnHeights[columnIndex] = @(y+height);
+    // 更新列高度
+    self.columnHeights[columnIndex] = @(y + height);
     
     return attributes;
 }
@@ -147,8 +147,7 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
 /**
  *  根据kind、indexPath，计算对应的LayoutAttributes
  */
-- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:elementKind withIndexPath:indexPath];
     
     //计算LayoutAttributes
@@ -211,11 +210,9 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
 /**
  *  计算目标rect中含有的item
  */
-- (NSMutableArray<NSIndexPath *> *)indexPathForItemsInRect:(CGRect)rect
-{
+- (NSMutableArray<NSIndexPath *> *)indexPathForItemsInRect:(CGRect)rect {
     NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
-    
-    
+
     return indexPaths;
 }
 
@@ -236,7 +233,6 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
         [indexPaths addObject:indexPath];
         //}
     }
-    
     
     return indexPaths;
 }

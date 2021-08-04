@@ -10,6 +10,7 @@
 #import "videoViewController.h"
 #import "RecommendViewController.h"
 #import "MainViewController.h"
+#import "meViewController.h"
 
 @interface MainTabBarViewController ()
 
@@ -24,7 +25,7 @@
 }
 
 #pragma mark - 初始化子控制器
-- (void)setupChildViewControllers{
+- (void)setupChildViewControllers {
     MainViewController *vc1 = [[MainViewController alloc] init];
     //UINavigationController *naVC1 = [[UINavigationController alloc] initWithRootViewController:vc1];
     vc1.tabBarItem.title = @"首页";
@@ -45,7 +46,7 @@
     naVC4.tabBarItem.title = @"推荐";
     [self addChildViewController:naVC4];
     
-    UIViewController *vc5 = [[UIViewController alloc] init];
+    meViewController *vc5 = [[meViewController alloc] init];
     //UINavigationController *naVC5 = [[UINavigationController alloc] initWithRootViewController:vc5];
     vc5.tabBarItem.title = @"我";
     [self addChildViewController:vc5];

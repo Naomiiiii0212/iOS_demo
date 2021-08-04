@@ -15,17 +15,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+        
+    UIButton *btn = [[UIButton alloc] init];
+    [btn setTitle:@"click" forState:UIControlStateNormal];
+    [btn setTitle:@"clicked" forState:UIControlStateHighlighted];
+    [btn setBackgroundColor:[UIColor greenColor]];
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    btn.frame = CGRectMake(100, 100, 100, 100);
+        
+    [self.view addSubview:btn];
 }
-*/
 
 @end
