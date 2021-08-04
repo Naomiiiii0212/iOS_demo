@@ -12,8 +12,8 @@
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
-#define kNavigationBarHeight 44.0
-#define kTabbarHeight 49.5
+#define kNavigationBarHeight (self.navigationController.navigationBar.frame.size.height)
+#define kTabbarHeight (self.tabBarController.tabBar.frame.size.height)
 #define kSafeAreaHeight [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom
 
 @interface MainViewController ()<UIScrollViewDelegate>
@@ -38,7 +38,7 @@
 }
 
 #pragma mark - 初始化页面
-- (void)setupView{
+- (void)setupView {
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.mainScrollView];
@@ -49,7 +49,7 @@
 }
 
 #pragma mark - 添加子控制器
-- (void)setupChildViewControllers{
+- (void)setupChildViewControllers {
     videoViewController *vc1 = [[videoViewController alloc]init];
     [self addChildViewController:vc1];
     RecommendViewController *vc2 = [[RecommendViewController alloc] init];
@@ -58,42 +58,46 @@
     [self addChildViewController:vc3];
 }
 
-#pragma mark - 设置第一次展示的vc
-- (void)showDefaultViewWithIndex:(NSInteger)index{
-    if (index<0) {
+#pragma mark - 设置展示的vc
+- (void)showDefaultViewWithIndex:(NSInteger)index {
+    if (index < 0) {
         return;
     }
-    [self.mainScrollView setContentOffset:CGPointMake(kScreenWidth*index, 0) animated:YES];
+    [self.mainScrollView setContentOffset:CGPointMake(kScreenWidth * index, 0) animated:YES];
     [self showViewWithIndex:index];
 }
 
 #pragma mark - UIScrollViewDelegate ScrollView代理
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    NSInteger index = scrollView.contentOffset.x/kScreenWidth;
+//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+//    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
+//    [self showViewWithIndex:index];
+//}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
     [self showViewWithIndex:index];
 }
 
 #pragma mark - 点击按钮
-- (void)clickFunBtn:(UIButton *)btn{
-    NSInteger index = btn.tag-1;
+- (void)clickFunBtn:(UIButton *)btn {
+    NSInteger index = btn.tag - 1;
     [self showDefaultViewWithIndex:index];
 }
 
 #pragma mark - private
-- (void)showViewWithIndex:(NSInteger)index{
-
-    UIButton *btn = [self.slideBGView viewWithTag:index+1];
+- (void)showViewWithIndex:(NSInteger)index {
+    UIButton *btn = [self.slideBGView viewWithTag:index + 1];
     if (btn == self.currentSelectBtn) {
         return;
     }
     
     UIViewController *vc = self.childViewControllers[index];
-    vc.view.frame = CGRectMake(kScreenWidth*index, 0, self.mainScrollView.bounds.size.width, self.mainScrollView.bounds.size.height);
+    vc.view.frame = CGRectMake(kScreenWidth * index, 0, self.mainScrollView.bounds.size.width, self.mainScrollView.bounds.size.height);
     [self.mainScrollView addSubview:vc.view];
     
-    CGFloat w = kScreenWidth/self.childViewControllers.count;
+    CGFloat w = kScreenWidth / self.childViewControllers.count;
     [UIView animateWithDuration:0.25 animations:^{
-        self.slideLine.frame = CGRectMake(w*index+0.2*w, 40, 0.6*w, 4);
+        self.slideLine.frame = CGRectMake(w * index, 40, 0.5 * w, 4);
     }];
     
     self.currentSelectBtn.selected = NO;
@@ -102,9 +106,10 @@
 }
 
 #pragma mark- getter & setter
-- (UIScrollView *)mainScrollView{
+- (UIScrollView *)mainScrollView {
     if (_mainScrollView == nil) {
-        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,0, kScreenWidth, kScreenHeight-kTabbarHeight-kSafeAreaHeight)];
+        _mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabbarHeight-kSafeAreaHeight)];
+        // 适配iOS11--contentInsetAdjustmentBehavior,不计算内边距，不让scrollView偏移
         _mainScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         _mainScrollView.delegate = self;
         _mainScrollView.backgroundColor = [UIColor whiteColor];
@@ -115,7 +120,7 @@
     return _mainScrollView;
 }
 
-- (UIView *)slideBGView{
+- (UIView *)slideBGView {
     if (_slideBGView == nil) {
         _slideBGView = [[UIView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight, kScreenWidth, 44)];
         _slideBGView.backgroundColor = [UIColor clearColor];

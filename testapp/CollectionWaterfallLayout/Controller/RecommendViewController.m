@@ -11,11 +11,12 @@
 #import "VideoPlayer.h"
 #import "VideoCoverView.h"
 
+#define kScreenWidth ([[UIScreen mainScreen] bounds].size.width)
+#define kScreenHeight ([[UIScreen mainScreen] bounds].size.height)
 #define kStatusBarHeight ([UIApplication sharedApplication].statusBarFrame.size.height)
 #define kNavigationBarHeight (self.navigationController.navigationBar.frame.size.height)
 #define kTabBarHeight (self.tabBarController.tabBar.frame.size.height)
-#define kScreenWidth ([[UIScreen mainScreen] bounds].size.width)
-#define kScreenHeight ([[UIScreen mainScreen] bounds].size.height)
+#define kSafeAreaHeight [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom
 
 @interface RecommendViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, CollectionWaterfallLayoutProtocol>
 
@@ -80,7 +81,7 @@
         _waterfallLayout.itemSpacing = 10;
         _waterfallLayout.insets = UIEdgeInsetsMake(10, 10, 10, 10);
         
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kStatusBarHeight-kNavigationBarHeight) collectionViewLayout:_waterfallLayout];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kTabBarHeight - kSafeAreaHeight) collectionViewLayout:_waterfallLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = [UIColor clearColor];
