@@ -81,7 +81,7 @@
 #pragma mark - 点击按钮
 - (void)clickFunBtn:(UIButton *)btn {
     NSInteger index = btn.tag - 1;
-    [self showDefaultViewWithIndex:index];
+    [self showViewWithIndex:index];
 }
 
 #pragma mark - private
@@ -97,7 +97,7 @@
     
     CGFloat w = kScreenWidth / self.childViewControllers.count;
     [UIView animateWithDuration:0.25 animations:^{
-        self.slideLine.frame = CGRectMake(w * index, 40, 0.5 * w, 4);
+        self.slideLine.frame = CGRectMake(w * (index + 0.25), 40, 0.5 * w, 2);
     }];
     
     self.currentSelectBtn.selected = NO;
@@ -137,18 +137,18 @@
             [btn addTarget:self action:@selector(clickFunBtn:) forControlEvents:UIControlEventTouchUpInside];
             [_slideBGView addSubview:btn];
         }
-//        self.slideLine.tag = self.childViewControllers.count+1;
-//        [_slideBGView addSubview:self.slideLine];
+        self.slideLine.tag = self.childViewControllers.count + 1;
+        [_slideBGView addSubview:self.slideLine];
     }
     return _slideBGView;
 }
 
-//- (UIView *)slideLine{
-//    if (_slideLine == nil) {
-//        _slideLine = [[UIView alloc] init];
-//        _slideLine.backgroundColor = [UIColor whiteColor];
-//    }
-//    return _slideLine;
-//}
+- (UIView *)slideLine {
+    if (_slideLine == nil) {
+        _slideLine = [[UIView alloc] init];
+        _slideLine.backgroundColor = [UIColor whiteColor];
+    }
+    return _slideLine;
+}
 
 @end
