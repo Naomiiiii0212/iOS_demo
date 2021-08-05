@@ -10,6 +10,9 @@
 		7C78DDC826AE646A00704D45 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C78DDC726AE646A00704D45 /* MainTabBarViewController.m */; };
 		CBBECA209EB0016A034FB424 /* libPods-testapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DAA48F0B15A97E1ED59FFD /* libPods-testapp.a */; };
 		DA042C3A2695505D00C4160E /* DeleteCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA042C392695505D00C4160E /* DeleteCellView.m */; };
+		DA1974B626BBF73A0016350D /* picViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA1974B426BBF73A0016350D /* picViewController.m */; };
+		DA1974B726BBF73A0016350D /* picViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA1974B526BBF73A0016350D /* picViewController.xib */; };
+		DA1974B926BBFD510016350D /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA1974B826BBFD510016350D /* Property List.plist */; };
 		DA238CA326A55C5D0015B994 /* VideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA238CA226A55C5D0015B994 /* VideoPlayer.m */; };
 		DA26F9AA26A11E0400D40434 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26F9A926A11E0400D40434 /* MainViewController.m */; };
 		DA26F9AC26A1308500D40434 /* btn_home_add_common.png in Resources */ = {isa = PBXBuildFile; fileRef = DA26F9AB26A1308500D40434 /* btn_home_add_common.png */; };
@@ -40,6 +43,11 @@
 		8D50AF12F2B7996F345CA0A5 /* Pods-testapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testapp.debug.xcconfig"; path = "Target Support Files/Pods-testapp/Pods-testapp.debug.xcconfig"; sourceTree = "<group>"; };
 		DA042C382695505D00C4160E /* DeleteCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeleteCellView.h; sourceTree = "<group>"; };
 		DA042C392695505D00C4160E /* DeleteCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeleteCellView.m; sourceTree = "<group>"; };
+		DA1974B226BBF6D30016350D /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = img.png; path = icon.bundle/img.png; sourceTree = "<group>"; };
+		DA1974B326BBF73A0016350D /* picViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = picViewController.h; sourceTree = "<group>"; };
+		DA1974B426BBF73A0016350D /* picViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = picViewController.m; sourceTree = "<group>"; };
+		DA1974B526BBF73A0016350D /* picViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = picViewController.xib; sourceTree = "<group>"; };
+		DA1974B826BBFD510016350D /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		DA238CA126A55C5D0015B994 /* VideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		DA238CA226A55C5D0015B994 /* VideoPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoPlayer.m; sourceTree = "<group>"; };
 		DA26F9A826A11E0400D40434 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -185,6 +193,7 @@
 				DA26F9A926A11E0400D40434 /* MainViewController.m */,
 				DA80F8FA268AFF3F004773B8 /* Main.storyboard */,
 				DA80F8FD268AFF40004773B8 /* Assets.xcassets */,
+				DA1974B226BBF6D30016350D /* img.png */,
 				DA26F9AB26A1308500D40434 /* btn_home_add_common.png */,
 				DA80F8FF268AFF40004773B8 /* LaunchScreen.storyboard */,
 				DA80F902268AFF40004773B8 /* Info.plist */,
@@ -193,6 +202,10 @@
 				DAB4B2EC26B3FE26005A9E5C /* meViewController.h */,
 				DAB4B2ED26B3FE26005A9E5C /* meViewController.m */,
 				DAC92F4126BACC07009872CB /* README.md */,
+				DA1974B326BBF73A0016350D /* picViewController.h */,
+				DA1974B426BBF73A0016350D /* picViewController.m */,
+				DA1974B526BBF73A0016350D /* picViewController.xib */,
+				DA1974B826BBFD510016350D /* Property List.plist */,
 			);
 			path = testapp;
 			sourceTree = "<group>";
@@ -310,6 +323,8 @@
 				DA80F901268AFF40004773B8 /* LaunchScreen.storyboard in Resources */,
 				DA80F8FE268AFF40004773B8 /* Assets.xcassets in Resources */,
 				DA80F8FC268AFF3F004773B8 /* Main.storyboard in Resources */,
+				DA1974B726BBF73A0016350D /* picViewController.xib in Resources */,
+				DA1974B926BBFD510016350D /* Property List.plist in Resources */,
 				DA8797642692F4A70062DD3D /* img.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +370,7 @@
 				DAB4B2EE26B3FE26005A9E5C /* meViewController.m in Sources */,
 				DA80F8F3268AFF3F004773B8 /* AppDelegate.m in Sources */,
 				DA80F904268AFF40004773B8 /* main.m in Sources */,
+				DA1974B626BBF73A0016350D /* picViewController.m in Sources */,
 				DA87976726931AE30062DD3D /* DetailViewController.m in Sources */,
 				DA238CA326A55C5D0015B994 /* VideoPlayer.m in Sources */,
 				DA87975B268C75F30062DD3D /* videoViewController.m in Sources */,

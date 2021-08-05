@@ -81,7 +81,7 @@
 #pragma mark - 点击按钮
 - (void)clickFunBtn:(UIButton *)btn {
     NSInteger index = btn.tag - 1;
-    [self showViewWithIndex:index];
+    [self showDefaultViewWithIndex:index];
 }
 
 #pragma mark - private
