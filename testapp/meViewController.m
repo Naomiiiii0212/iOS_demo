@@ -26,4 +26,7 @@
     [self.view addSubview:btn];
 }
 
+- (void) sayhi {
+    
+}
 @end

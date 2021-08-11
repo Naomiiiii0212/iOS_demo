@@ -14,8 +14,8 @@
 #define kScreenWidth ([[UIScreen mainScreen] bounds].size.width)
 #define kScreenHeight ([[UIScreen mainScreen] bounds].size.height)
 #define kStatusBarHeight ([UIApplication sharedApplication].statusBarFrame.size.height)
-#define kNavigationBarHeight (self.navigationController.navigationBar.frame.size.height)
-#define kTabBarHeight (self.tabBarController.tabBar.frame.size.height)
+#define kNavigationBarHeight 44.0
+#define kTabBarHeight 49.5
 #define kSafeAreaHeight [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom
 
 @interface RecommendViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, CollectionWaterfallLayoutProtocol>

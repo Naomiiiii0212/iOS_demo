@@ -2,7 +2,7 @@
 //  MainTabBarViewController.m
 //  testapp
 //
-//  Created by zhangpeijin on 2021/7/26.
+//  Created by lichun on 2021/7/26.
 //
 
 #import "MainTabBarViewController.h"

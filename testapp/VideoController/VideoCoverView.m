@@ -18,7 +18,7 @@
 
 @implementation VideoCoverView
 
-- (instancetype) initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self) {
 		[self addSubview:({
@@ -32,7 +32,7 @@
 			_playButton = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - 50) / 2, (frame.size.height - 50) / 2, 50, 50)];
 			_playButton;
 		})];
-
+        
 		// 加入手势，播放按钮响应
 		UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_tapToPlay)];
 		[self addGestureRecognizer:tapGesture];

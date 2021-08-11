@@ -13,7 +13,7 @@
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define kNavigationBarHeight 44.0
-#define kTabbarHeight 49.5
+#define kTabBarHeight 49.5
 #define kSafeAreaHeight [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom
 
 @interface videoViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
@@ -46,7 +46,7 @@
 //	// 每个cell视频源占满整个屏幕，上下滑动切换cell，因此每滑动两个cell就会进行cell复用
 //	 flowLayout.itemSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 
-	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabbarHeight-kSafeAreaHeight) collectionViewLayout:flowLayout];
+	UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-kTabBarHeight-kSafeAreaHeight) collectionViewLayout:flowLayout];
 	collectionView.dataSource = self;
 	collectionView.delegate = self;
 	// 必须先注册 Cell 类型⽤于重用
@@ -77,7 +77,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(kScreenWidth, kScreenHeight-kTabbarHeight-kSafeAreaHeight);
+    return CGSizeMake(kScreenWidth, kScreenHeight-kTabBarHeight-kSafeAreaHeight);
 }
 
 

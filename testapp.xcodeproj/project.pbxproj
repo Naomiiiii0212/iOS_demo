@@ -118,6 +118,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA0BB0B226C3743A0019AC5C /* MainController */ = {
+			isa = PBXGroup;
+			children = (
+				7C78DDC626AE646A00704D45 /* MainTabBarViewController.h */,
+				7C78DDC726AE646A00704D45 /* MainTabBarViewController.m */,
+				DA26F9A826A11E0400D40434 /* MainViewController.h */,
+				DA26F9A926A11E0400D40434 /* MainViewController.m */,
+			);
+			path = MainController;
+			sourceTree = "<group>";
+		};
 		DA672C59269D7C2400324E7E /* VideoController */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +190,7 @@
 		DA80F8F0268AFF3F004773B8 /* testapp */ = {
 			isa = PBXGroup;
 			children = (
+				DA0BB0B226C3743A0019AC5C /* MainController */,
 				DA76E01E26A919CF00F759DE /* CollectionWaterfallLayout */,
 				DA672C59269D7C2400324E7E /* VideoController */,
 				DAD5179F2696AC2E007DD3C5 /* NewsController */,
@@ -187,10 +199,6 @@
 				DA80F8F2268AFF3F004773B8 /* AppDelegate.m */,
 				DA80F8F4268AFF3F004773B8 /* SceneDelegate.h */,
 				DA80F8F5268AFF3F004773B8 /* SceneDelegate.m */,
-				7C78DDC626AE646A00704D45 /* MainTabBarViewController.h */,
-				7C78DDC726AE646A00704D45 /* MainTabBarViewController.m */,
-				DA26F9A826A11E0400D40434 /* MainViewController.h */,
-				DA26F9A926A11E0400D40434 /* MainViewController.m */,
 				DA80F8FA268AFF3F004773B8 /* Main.storyboard */,
 				DA80F8FD268AFF40004773B8 /* Assets.xcassets */,
 				DA1974B226BBF6D30016350D /* img.png */,
