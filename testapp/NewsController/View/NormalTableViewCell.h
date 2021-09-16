@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class  ListItem;
 
 
-//点击删除按钮
-@protocol NormalTableViewCellDelegate <NSObject>
 
+@protocol NormalTableViewCellDelegate <NSObject>
+//点击删除按钮
 - (void) tableViewCell: (UITableViewCell *) tableViewCell clickDeleteButton: (UIButton *) deleteButton;
 
 @end

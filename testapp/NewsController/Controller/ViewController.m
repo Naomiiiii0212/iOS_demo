@@ -13,7 +13,7 @@
 #import "ListItem.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource, NormalTableViewCellDelegate>
-@property(nonatomic, strong, readwrite) UITableView *tableview;
+@property(nonatomic, strong, readwrite) UITableView * tableview;
 @property(nonatomic, strong, readwrite) NSArray *dataArray;
 @property(nonatomic, strong, readwrite) ListLoader *listLoader;
 
@@ -88,7 +88,7 @@
 
 - (void)tableViewCell:(UITableViewCell *)tableViewCell clickDeleteButton:(UIButton *)deleteButton {
 //	DeleteCellView *deleteView = [[DeleteCellView alloc] initWithFrame:self.view.bounds];
-//
+//  将cell坐标系转换到window坐标系
 //	CGRect rect = [tableViewCell convertRect:deleteButton.frame toView:nil];
 //
 //	//block处理循环引用问题

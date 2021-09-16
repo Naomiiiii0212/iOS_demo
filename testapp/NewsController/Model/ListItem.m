@@ -11,6 +11,7 @@
 
 #pragma mark - NSScureCoding
 
+// 反序列化方法
 - (nullable instancetype)initWithCoder:(NSCoder *)coder {
 	self = [super init];
 	if (self) {
@@ -24,6 +25,8 @@
 	}
 	return self;
 }
+
+// 序列化方法
 - (void)encodeWithCoder:(NSCoder *)coder {
 	[coder encodeObject:self.category forKey:@"category"];
 	[coder encodeObject:self.picUrl forKey:@"picUrl"];
@@ -34,7 +37,7 @@
 	[coder encodeObject:self.articleUrl forKey:@"articleUrl"];
 }
 
-+(BOOL) supportsSecureCoding {
++ (BOOL) supportsSecureCoding {
 	return YES;
 }
 

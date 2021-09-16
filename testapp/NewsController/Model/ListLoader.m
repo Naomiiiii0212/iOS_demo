@@ -59,7 +59,7 @@
     NSFileManager *fileManger = [NSFileManager defaultManager];
     
     NSData *readListData = [fileManger contentsAtPath:listDataPath];
-    
+    // 反序列化
     id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [ListItem class],nil] fromData:readListData error:nil];
     if ([unarchiveObj isKindOfClass:[NSArray
                                      class]] && [unarchiveObj count] > 0) {
@@ -70,30 +70,27 @@
 }
 
 - (void) _archiveListDataWithArray:(NSArray<ListItem *> *) array {
+    // NSCachesDirectory 不需要缓存，可清除
 	NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	NSString *cachePath = [pathArray firstObject];
 
 	NSFileManager *fileManger = [NSFileManager defaultManager];
-	//创建文件夹
+    
 	NSString *dataPath = [cachePath stringByAppendingPathComponent:@"Data"];
 
 	NSError *createError;
-
+    // 创建目录
 	[fileManger createDirectoryAtPath:dataPath withIntermediateDirectories:YES attributes:nil error:&createError];
-	//创建文件
+	// 创建文件
 	NSString *listDataPath = [dataPath stringByAppendingPathComponent:@"list"];
-	//数据写入文件
+	// 数据写入文件，序列号整个array，返回二进制流
 	NSData *listData = [NSKeyedArchiver archivedDataWithRootObject:array requiringSecureCoding:YES error:nil];
 	[fileManger createFileAtPath:listDataPath contents:listData attributes:nil];
 
 	//读取二进制流文件
 	//NSData *readListData = [fileManger contentsAtPath:listDataPath];
 
-    
-    
 
-
-	//反序列化
 
 //    id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [ListItem class],nil] fromData:readListData error:nil];
 
@@ -101,8 +98,8 @@
 
 	[[NSUserDefaults standardUserDefaults] setObject:listData forKey:@"listData"];
 	NSData *testListdata = [[NSUserDefaults standardUserDefaults] dataForKey:@"listData"];
-
-	id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [ListItem class],nil] fromData:testListdata error:nil];
+    
+//	id unarchiveObj = [NSKeyedUnarchiver unarchivedObjectOfClasses:[NSSet setWithObjects:[NSArray class], [ListItem class],nil] fromData:testListdata error:nil];
 
 	//查询文件
 	//BOOL fileExist = [fileManger fileExistsAtPath:listDataPath];

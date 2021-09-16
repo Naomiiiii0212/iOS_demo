@@ -77,7 +77,7 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
  *  3、
  *  当CollectionView开始刷新后，会调用此方法并传递rect参数（即当前可视区域）
  *  我们需要利用rect参数判断出在当前可视区域中有哪几个indexPath会被显示（无视rect而全部计算将会带来不好的性能）
- *  最后计算相关indexPath的layoutAttributes，加入数组中并返回
+ *  最后，加入数组中并返回
  *  计算rect内相应的布局，并返回一个装有UICollectionViewLayoutAttributes的数组，Attributes
  *  跟所有Item一一对应，UICollectionView就是根据这个Attributes来对Item进行布局，并当新的Rect区域滚动进入屏幕时再次请求此方法。
  */
@@ -219,8 +219,7 @@ CGFloat const kSupplementaryViewKindHeaderPinnedHeight = 44.f;
 /**
  *  计算目标rect中含有的某类SupplementaryView
  */
-- (NSMutableArray<NSIndexPath *> *)indexPathForSupplementaryViewsOfKind:(NSString *)kind InRect:(CGRect)rect
-{
+- (NSMutableArray<NSIndexPath *> *)indexPathForSupplementaryViewsOfKind:(NSString *)kind InRect:(CGRect)rect {
     NSMutableArray<NSIndexPath *> *indexPaths = [NSMutableArray array];
     if([kind isEqualToString:kSupplementaryViewKindHeader]){
         //在这个瀑布流自定义布局中，只有一个位于列表顶部的SupplementaryView

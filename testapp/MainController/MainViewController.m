@@ -18,7 +18,7 @@
 
 @interface MainViewController ()<UIScrollViewDelegate>
 
-@property (nonatomic, strong, readwrite) UIScrollView *mainScrollView;
+@property(nonatomic, strong) UIScrollView *mainScrollView;
 @property(nonatomic, strong) UIView *slideBGView;
 @property(nonatomic, strong) UIView *slideLine;
 @property(nonatomic, strong) UIButton *currentSelectBtn;

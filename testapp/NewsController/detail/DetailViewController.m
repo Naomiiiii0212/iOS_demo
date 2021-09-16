@@ -10,11 +10,10 @@
 @interface DetailViewController ()<WKNavigationDelegate>
 
 @property(nonatomic, strong, readwrite) WKWebView *webView;
-
 // 进度条
 @property(nonatomic, strong, readwrite) UIProgressView *progressView;
-
 @property(nonatomic, strong, readwrite) NSString *articleUrl;
+
 @end
 
 @implementation DetailViewController
@@ -48,7 +47,9 @@
 	})];
 
 	[self.webView loadRequest:[NSURLRequest requestWithURL: [NSURL URLWithString: self.articleUrl]]];
+    
 	[self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 //监听回调

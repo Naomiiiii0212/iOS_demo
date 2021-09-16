@@ -44,6 +44,7 @@
 	return self;
 }
 
+// 点击调出蓝色按钮，再点击按钮手势交互回调回去
 - (void) showDeleteViewFromPoint:(CGPoint)point clickBlock:(dispatch_block_t) clickBlock {
 	_deleteButton.frame = CGRectMake(point.x, point.y, 0, 0);
 	_deleteBlock = [clickBlock copy];
